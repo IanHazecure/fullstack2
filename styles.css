@@ -16,10 +16,9 @@
 
 body {
   font-family: "Trebuchet MS", "Segoe UI", sans-serif;
-  background: linear-gradient(180deg, #fff8ec 0%, #f8f4ee 100%);
+  background: linear-gradient(180deg, #39497e 0%, #29396e 100%);
   color: var(--color-texto);
   min-height: 100vh;
-  animation: aparecerPagina 0.7s ease;
 }
 
 header {
@@ -27,7 +26,6 @@ header {
   color: #fff;
   padding: 22px;
   text-align: center;
-  animation: bajarTitulo 0.7s ease;
 }
 
 main {
@@ -58,10 +56,10 @@ h2 {
   text-decoration: none;
   color: var(--color-texto);
   display: block;
-  animation: aparecerTarjeta 0.8s ease;
 }
 
 .card img {
+    padding: 12px;
   width: 100%;
   height: 180px;
   object-fit: cover;
@@ -69,11 +67,6 @@ h2 {
 
 .card h3 {
   padding: 14px;
-}
-
-.card:hover {
-  transform: translateY(-6px) scale(1.01);
-  transition: transform 0.3s ease;
 }
 
 .grid-vinilos {
@@ -87,7 +80,7 @@ h2 {
   border-radius: var(--radio);
   box-shadow: var(--sombra);
   overflow: hidden;
-  animation: subirSuave 0.6s ease;
+   padding: 12px;
 }
 
 .vinilo img {
@@ -122,7 +115,6 @@ h2 {
   font-size: 0.8rem;
   color: #fff;
   background: var(--color-secundario);
-  animation: pulso 1.3s infinite;
 }
 
 .sin-descuento {
@@ -145,79 +137,3 @@ h2 {
   border-radius: 10px;
 }
 
-.nav-volver:hover {
-  background: var(--color-secundario);
-  transition: background-color 0.3s ease;
-}
-
-@keyframes aparecerPagina {
-  from {
-    opacity: 0;
-  }
-  to {
-    opacity: 1;
-  }
-}
-
-@keyframes bajarTitulo {
-  from {
-    transform: translateY(-20px);
-    opacity: 0;
-  }
-  to {
-    transform: translateY(0);
-    opacity: 1;
-  }
-}
-
-@keyframes aparecerTarjeta {
-  from {
-    transform: translateY(20px);
-    opacity: 0;
-  }
-  to {
-    transform: translateY(0);
-    opacity: 1;
-  }
-}
-
-@keyframes pulso {
-  0% {
-    transform: scale(1);
-  }
-  50% {
-    transform: scale(1.05);
-  }
-  100% {
-    transform: scale(1);
-  }
-}
-
-@keyframes subirSuave {
-  from {
-    transform: translateY(14px);
-    opacity: 0;
-  }
-  to {
-    transform: translateY(0);
-    opacity: 1;
-  }
-}
-
-@media (max-width: 900px) {
-  .categorias,
-  .grid-vinilos {
-    grid-template-columns: repeat(2, 1fr);
-  }
-}
-
-@media (max-width: 560px) {
-  .categorias,
-  .grid-vinilos {
-    grid-template-columns: 1fr;
-  }
-
-  h1 {
-    font-size: 1.6rem;
-  }
-}
