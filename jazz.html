@@ -7,9 +7,15 @@
     <link rel="stylesheet" href="styles.css" />
   </head>
   <body>
-    <header>
-      <h1>Jazz</h1>
-    </header>
+ <div id="header"></div>
+
+<script>
+fetch("header.html")
+    .then(response => response.text())
+    .then(data => {
+        document.getElementById("header").innerHTML = data;
+    });
+</script>
 
     <main>
       <h2>Vinilos populares</h2>
@@ -17,7 +23,7 @@
         <a href="rock.html">Rock</a> 
         <a href="jazz.html">Jazz</a> 
         <a href="pop.html">Pop</a> 
-        <a href="Punk.html">Punk</a>
+        <a href="punk.html">Punk</a>
       </nav>
 
       <section class="grid-vinilos">
@@ -25,7 +31,7 @@
           <img src="cover/KindofBlue.jpg"alt="Album Jazz 1" />
           <div class="vinilo-content">
             <h3>Kind of Blue</h3>
-            <p>descripcion</p>
+            <p>Cool Jazz</p>
             <p class="precio">$33.000</p>
             <span class="descuento">Descuento: Si</span>
           </div>
@@ -35,7 +41,7 @@
           <img  src="cover/timeout.jpg" alt="Album Jazz 2" />
           <div class="vinilo-content">
             <h3>Time Out</h3>
-            <p>descripcion</p>
+            <p>Hard Bop</p>
             <p class="precio">$31.000</p>
             <span class="sin-descuento">Descuento: No</span>
           </div>
@@ -45,7 +51,7 @@
           <img src="cover/BlueTrain.jpg" alt="Album Jazz 3" />
           <div class="vinilo-content">
             <h3>Blue Train</h3>
-            <p>descripcion</p>
+            <p>Be-bop</p>
             <p class="precio">$29.000</p>
             <span class="descuento">Descuento: Si</span>
           </div>

@@ -7,9 +7,16 @@
     <link rel="stylesheet" href="styles.css" />
   </head>
   <body>
-    <header>
-      <h1>Clasica</h1>
-    </header>
+ <div id="header" class="header-slot"></div>
+
+<script>
+fetch("header.html")
+    .then(response => response.text())
+    .then(data => {
+        document.getElementById("header").innerHTML = data;
+    document.getElementById("header").classList.add("is-loaded");
+    });
+</script>
 
     <main>
       <h2>Vinilos populares</h2>
@@ -18,7 +25,7 @@
         <a href="rock.html">Rock</a>
         <a href="jazz.html">Jazz</a>
         <a href="pop.html">Pop</a>
-         <a href="Punk.html">Punk</a>
+         <a href="punk.html">Punk</a>
       </nav>
 
       <section class="grid-vinilos">
@@ -26,7 +33,7 @@
           <img src="cover/antitodo.jpg" alt="Album Clasica 1" />
           <div class="vinilo-content">
             <h3>Anti Todo</h3>
-            <p>1</p>
+            <p>Punk Rock</p>
             <p class="precio">$50.000</p>
             <span class="descuento">Descuento: Si</span>
           </div>
@@ -36,7 +43,7 @@
           <img src="cover/fiesta.jpg" alt="Album Clasica 2" />
           <div class="vinilo-content">
             <h3>Fiesta</h3>
-            <p>2.</p>
+            <p>Punk Rock/Hardcore Punk</p>
             <p class="precio">$47.000</p>
             <span class="sin-descuento">Descuento: No</span>
           </div>
@@ -46,7 +53,7 @@
           <img src="cover/monters.png" alt="Album Clasica 3" />
           <div class="vinilo-content">
             <h3>Famous Monsters</h3>
-            <p>3</p>
+            <p>Horror Punk/Heavy Metal</p>
             <p class="precio">$44.000</p>
             <span class="descuento">Descuento: Si</span>
           </div>

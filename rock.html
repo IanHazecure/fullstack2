@@ -7,17 +7,23 @@
     <link rel="stylesheet" href="styles.css" />
   </head>
   <body>
-    <header>
-      <h1>Rock</h1>
-    </header>
+ <div id="header"></div>
 
+<script>
+fetch("header.html")
+    .then(response => response.text())
+    .then(data => {
+        document.getElementById("header").innerHTML = data;
+    });
+</script>
     <main>
+      <h1>Vinilos</h1>
       <h2>Vinilos populares</h2>
       <nav class="categoria-nav">
         <a href="rock.html">Rock</a>
         <a href="jazz.html">Jazz</a>
         <a href="pop.html">Pop</a>
-         <a href="Punk.html">Punk</a>
+         <a href="punk.html">Punk</a>
       </nav>
 
       <section class="grid-vinilos">
@@ -25,7 +31,7 @@
           <img src="cover/tdsotm.png" alt="Album Rock 1" />
           <div class="vinilo-content">
             <h3>Dark Side of the Moon</h3>
-            <p>descripcion</p>
+            <p>Progressive Rock/Art Rock</p>
             <p class="precio">$42.000</p>
             <span class="descuento">Descuento: Si</span>
           </div>
@@ -35,7 +41,7 @@
           <img src="cover/Disintegration.jpg" alt="Album Rock 2" />
           <div class="vinilo-content">
             <h3>Disintegration</h3>
-            <p>descripcion</p>
+            <p>Gothic rock/Alternative rock</p>
             <p class="precio">$36.000</p>
             <span class="sin-descuento">Descuento: No</span>
           </div>
@@ -45,7 +51,7 @@
           <img src="cover/flatfield.jpg" alt="Album Rock 3" />
           <div class="vinilo-content">
             <h3>In the Flat Field</h3>
-            <p>descripcion</p>
+            <p>Post-Punk/Dark Glam</p>
             <p class="precio">$39.000</p>
             <span class="descuento">Descuento: Si</span>
           </div>
