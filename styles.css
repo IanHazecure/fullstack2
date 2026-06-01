@@ -6,30 +6,56 @@
 
 body {
   font-family: "Trebuchet MS", "Segoe UI", sans-serif;
-  background: linear-gradient(180deg, #ffffff 0%, #dee5ff 100%);
+  background: #000000;
   color: #f4f4f4;
   min-height: 100vh;
+  position: relative;
+  isolation: isolate;
+}
+
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  background-image: url("background/background.png");
+  background-size: cover;
+  background-position: center center;
+  background-repeat: no-repeat;
+  filter: grayscale(1) blur(6px);
+  
+  transform: scale(1.08);
+  z-index: -1;
+  pointer-events: none;
+}
+
+body::after {
+  content: "";
+  position: fixed;
+  inset: 0;
+  /* background: linear-gradient(135deg, rgba(214, 214, 214, 0.18), rgba(0, 0, 0, 0.22)); */
+  z-index: 0;
+  pointer-events: none;
+}
+
+body > * {
+  position: relative;
+  z-index: 1;
 }
 
 header {
+  
   background-color: #000000;
   color: #fff;
   padding: 22px;
   text-align: center;
 }
 
-.header-slot {
-  visibility: hidden;
-}
-
-.header-slot.is-loaded {
-  visibility: visible;
-}
 
 main {
   width: min(1100px, 92%);
   margin: 30px auto;
   animation: slideIn 0.6s ease-out;
+  
 }
 
 @keyframes slideIn {
@@ -54,8 +80,12 @@ h1#logo-name{
 
 h2 {
   margin-bottom: 18px;
-  color: #2b2d42;
+  color: #ffffff;
+  text-align: center;
+
 }
+
+
 
 .categorias {
   display: grid;

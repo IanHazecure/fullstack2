@@ -7,19 +7,12 @@
     <link rel="stylesheet" href="styles.css" />
   </head>
   <body>
- <div id="header" class="header-slot"></div>
-
-<script>
-fetch("header.html")
-    .then(response => response.text())
-    .then(data => {
-        document.getElementById("header").innerHTML = data;
-    document.getElementById("header").classList.add("is-loaded");
-    });
-</script>
+ <header>
+      <h1 id="logo-name">Vinilos logo
+      </h1>
+    </header>
 
     <main>
-      <h2>Vinilos populares</h2>
 
       <nav class="categoria-nav">
         <a href="rock.html">Rock</a>
