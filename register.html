@@ -22,7 +22,7 @@
     <main class="container py-5">
       <div class="row justify-content-center">
         <div class="col-12 col-lg-9 col-xl-8">
-          <div class="bg-dark bg-opacity-75 text-white border border-secondary shadow-lg rounded-4">
+          <div class=" bg-dark bg-opacity-75 text-white border border-secondary shadow-lg rounded-4">
             <div class="card-body p-4 p-md-5">
               <h2 class="text-center mb-3">Registro de compradores</h2>
               <p class="text-center text-secondary mb-4">
@@ -84,7 +84,49 @@
                     <div class="invalid-feedback" data-default-message="Debes tener al menos 13 años para registrarte.">Debes tener al menos 13 años para registrarte.</div>
                   </div>
 
-                 
+                  <div class="col-12 col-md-6">
+                    <label for="password" class="form-label">Contraseña</label>
+                    <input
+                      type="password"
+                      class="form-control bg-dark text-white border-secondary"
+                      id="password"
+                      name="password"
+                      autocomplete="new-password"
+                      minlength="6"
+                      maxlength="18"
+                      required
+                    />
+                    <div class="invalid-feedback" data-default-message="Usa entre 6 y 18 caracteres, con al menos una mayúscula y un número.">Usa entre 6 y 18 caracteres, con al menos una mayúscula y un número.</div>
+                  </div>
+
+                  <div class="col-12 col-md-6">
+                    <label for="confirmPassword" class="form-label">Repetir contraseña</label>
+                    <input
+                      type="password"
+                      class="form-control bg-dark text-white border-secondary"
+                      id="confirmPassword"
+                      name="confirmPassword"
+                      autocomplete="new-password"
+                      minlength="6"
+                      maxlength="18"
+                      required
+                    />
+                    <div class="invalid-feedback" data-default-message="Las contraseñas deben coincidir.">Las contraseñas deben coincidir.</div>
+                  </div>
+
+                  <div class="col-12">
+                    <label for="shippingAddress" class="form-label">Dirección de despacho</label>
+                    <textarea
+                      class="form-control bg-dark text-white border-secondary"
+                      id="shippingAddress"
+                      name="shippingAddress"
+                      rows="3"
+                      placeholder="Opcional"
+                    ></textarea>
+                    <div class="form-text text-secondary">Este campo es opcional.</div>
+                  </div>
+                </div>
+
                 <div class="d-flex flex-column flex-sm-row gap-2 justify-content-end mt-4">
                   <button type="submit" class="btn btn-primary px-4">Enviar formulario</button>
                   <button type="button" id="clearForm" class="btn btn-outline-light px-4">Limpiar formulario</button>
