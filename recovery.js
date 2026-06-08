@@ -49,7 +49,7 @@ document.addEventListener("DOMContentLoaded", () => {
       return;
     }
 
-    // show the stored recovery code (simulating delivery)
+
     showAlert("info", `Código de recuperación: ${user.recoveryCode}`);
   });
 });
