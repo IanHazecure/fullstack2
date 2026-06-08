@@ -58,6 +58,14 @@ main {
   
 }
 
+.auth-shell {
+  width: min(920px, 92%);
+}
+
+.auth-card {
+  backdrop-filter: blur(10px);
+}
+
 @keyframes slideIn {
     from {
         opacity: 0;
@@ -91,6 +99,17 @@ h2 {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   gap: 18px;
+}
+
+.btn-primary {
+  background: linear-gradient(135deg, #c23d4b, #7f1d1d);
+  border-color: transparent;
+}
+
+.btn-primary:hover,
+.btn-primary:focus {
+  background: linear-gradient(135deg, #d14c59, #9a2222);
+  border-color: transparent;
 }
 
 .card {
@@ -233,5 +252,9 @@ h2 {
 
   header {
     padding: 14px;
+  }
+
+  .auth-shell {
+    width: min(100%, 100%);
   }
 }

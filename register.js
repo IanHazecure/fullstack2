@@ -3,7 +3,6 @@ document.addEventListener("DOMContentLoaded", () => {
   const clearButton = document.getElementById("clearForm");
   const alertBox = document.getElementById("formAlert");
   const birthDateInput = document.getElementById("birthDate");
-  const recoveryCodeInput = document.getElementById("recoveryCode");
 
   const fullNameInput = document.getElementById("fullName");
   const usernameInput = document.getElementById("username");
@@ -12,15 +11,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const confirmPasswordInput = document.getElementById("confirmPassword");
   const shippingAddressInput = document.getElementById("shippingAddress");
 
-  const requiredInputs = [
-    fullNameInput,
-    usernameInput,
-    emailInput,
-    recoveryCodeInput,
-    passwordInput,
-    confirmPasswordInput,
-    birthDateInput,
-  ];
+  const requiredInputs = [fullNameInput, usernameInput, emailInput, passwordInput, confirmPasswordInput, birthDateInput];
 
   const today = new Date();
   const maxBirthDate = new Date(today.getFullYear() - 13, today.getMonth(), today.getDate());
@@ -107,12 +98,6 @@ document.addEventListener("DOMContentLoaded", () => {
       return false;
     }
 
-    const normalizedUsername = usernameInput.value.trim().toLowerCase();
-    if (getUsers().some((user) => user.username === normalizedUsername)) {
-      setFieldState(usernameInput, false, "Ese nombre de usuario ya está registrado.");
-      return false;
-    }
-
     setFieldState(usernameInput, true);
     return true;
   }
@@ -128,23 +113,7 @@ document.addEventListener("DOMContentLoaded", () => {
       return false;
     }
 
-    const normalizedEmail = emailInput.value.trim().toLowerCase();
-    if (getUsers().some((user) => user.email.toLowerCase() === normalizedEmail)) {
-      setFieldState(emailInput, false, "Ese correo electrónico ya está registrado.");
-      return false;
-    }
-
     setFieldState(emailInput, true);
-    return true;
-  }
-
-  function validateRecoveryCode() {
-    if (!recoveryCodeInput.value.trim()) {
-      setFieldState(recoveryCodeInput, false, "El código de recuperación es obligatorio.");
-      return false;
-    }
-
-    setFieldState(recoveryCodeInput, true);
     return true;
   }
 
@@ -202,7 +171,6 @@ document.addEventListener("DOMContentLoaded", () => {
       validateFullName(),
       validateUsername(),
       validateEmail(),
-      validateRecoveryCode(),
       validatePassword(),
       validateConfirmPassword(),
       validateBirthDate(),
@@ -218,7 +186,6 @@ document.addEventListener("DOMContentLoaded", () => {
       if (input.id === "fullName") validateFullName();
       if (input.id === "username") validateUsername();
       if (input.id === "email") validateEmail();
-      if (input.id === "recoveryCode") validateRecoveryCode();
       if (input.id === "password") {
         validatePassword();
         if (confirmPasswordInput.value) {
@@ -245,28 +212,21 @@ document.addEventListener("DOMContentLoaded", () => {
       return;
     }
 
+    showAlert("success", "Registro enviado correctamente.");
+    // save registration (excluding password) to localStorage
     const registration = {
       fullName: fullNameInput.value.trim(),
       username: usernameInput.value.trim(),
       email: emailInput.value.trim(),
-      recoveryCode: recoveryCodeInput.value.trim(),
       birthDate: birthDateInput.value,
       shippingAddress: shippingAddressInput.value.trim(),
       createdAt: new Date().toISOString(),
     };
 
     try {
-      const result = registerUser({
-        ...registration,
-        password: passwordInput.value,
-      });
-
-      if (!result.ok) {
-        showAlert("danger", result.message);
-        return;
-      }
-
-      showAlert("success", "Cuenta creada correctamente. Ya puedes iniciar sesión.");
+      const list = JSON.parse(localStorage.getItem("registrations") || "[]");
+      list.push(registration);
+      localStorage.setItem("registrations", JSON.stringify(list));
     } catch (e) {
       // storage failed, ignore but notify in console
       console.error("Failed to save registration:", e);
