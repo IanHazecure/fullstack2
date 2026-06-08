@@ -2,16 +2,22 @@ document.addEventListener("DOMContentLoaded", () => {
   const form = document.getElementById("registerForm");
   const clearButton = document.getElementById("clearForm");
   const alertBox = document.getElementById("formAlert");
-  const birthDateInput = document.getElementById("birthDate");
-
   const fullNameInput = document.getElementById("fullName");
   const usernameInput = document.getElementById("username");
   const emailInput = document.getElementById("email");
+  const birthDateInput = document.getElementById("birthDate");
   const passwordInput = document.getElementById("password");
   const confirmPasswordInput = document.getElementById("confirmPassword");
   const shippingAddressInput = document.getElementById("shippingAddress");
 
-  const requiredInputs = [fullNameInput, usernameInput, emailInput, passwordInput, confirmPasswordInput, birthDateInput];
+  const requiredInputs = [
+    fullNameInput,
+    usernameInput,
+    emailInput,
+    birthDateInput,
+    passwordInput,
+    confirmPasswordInput,
+  ];
 
   const today = new Date();
   const maxBirthDate = new Date(today.getFullYear() - 13, today.getMonth(), today.getDate());
@@ -98,6 +104,12 @@ document.addEventListener("DOMContentLoaded", () => {
       return false;
     }
 
+    const normalizedUsername = usernameInput.value.trim().toLowerCase();
+    if (getUsers().some((user) => user.username === normalizedUsername)) {
+      setFieldState(usernameInput, false, "Ese nombre de usuario ya está registrado.");
+      return false;
+    }
+
     setFieldState(usernameInput, true);
     return true;
   }
@@ -110,6 +122,12 @@ document.addEventListener("DOMContentLoaded", () => {
 
     if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(emailInput.value.trim())) {
       setFieldState(emailInput, false, "El correo electrónico debe tener un formato válido.");
+      return false;
+    }
+
+    const normalizedEmail = emailInput.value.trim().toLowerCase();
+    if (getUsers().some((user) => user.email.toLowerCase() === normalizedEmail)) {
+      setFieldState(emailInput, false, "Ese correo electrónico ya está registrado.");
       return false;
     }
 
@@ -167,7 +185,7 @@ document.addEventListener("DOMContentLoaded", () => {
   function validateForm() {
     clearAlert();
 
-    const isFormValid = [
+    return [
       validateFullName(),
       validateUsername(),
       validateEmail(),
@@ -175,8 +193,6 @@ document.addEventListener("DOMContentLoaded", () => {
       validateConfirmPassword(),
       validateBirthDate(),
     ].every(Boolean);
-
-    return isFormValid;
   }
 
   requiredInputs.forEach((input) => {
@@ -186,6 +202,7 @@ document.addEventListener("DOMContentLoaded", () => {
       if (input.id === "fullName") validateFullName();
       if (input.id === "username") validateUsername();
       if (input.id === "email") validateEmail();
+      if (input.id === "birthDate") validateBirthDate();
       if (input.id === "password") {
         validatePassword();
         if (confirmPasswordInput.value) {
@@ -193,7 +210,6 @@ document.addEventListener("DOMContentLoaded", () => {
         }
       }
       if (input.id === "confirmPassword") validateConfirmPassword();
-      if (input.id === "birthDate") validateBirthDate();
     });
   });
 
@@ -212,28 +228,30 @@ document.addEventListener("DOMContentLoaded", () => {
       return;
     }
 
-    showAlert("success", "Registro enviado correctamente.");
-    // save registration (excluding password) to localStorage
     const registration = {
       fullName: fullNameInput.value.trim(),
       username: usernameInput.value.trim(),
       email: emailInput.value.trim(),
+      recoveryCode: `RC-${Math.random().toString(36).slice(2, 8).toUpperCase()}`,
       birthDate: birthDateInput.value,
       shippingAddress: shippingAddressInput.value.trim(),
       createdAt: new Date().toISOString(),
     };
 
-    try {
-      const list = JSON.parse(localStorage.getItem("registrations") || "[]");
-      list.push(registration);
-      localStorage.setItem("registrations", JSON.stringify(list));
-    } catch (e) {
-      // storage failed, ignore but notify in console
-      console.error("Failed to save registration:", e);
+    const result = registerUser({
+      ...registration,
+      password: passwordInput.value,
+    });
+
+    if (!result.ok) {
+      showAlert("danger", result.message);
+      return;
     }
 
+    sessionStorage.setItem("authNotice", "Cuenta creada correctamente. Ahora inicia sesión.");
     form.reset();
     requiredInputs.forEach((input) => resetFieldState(input));
     shippingAddressInput.value = "";
+    window.location.href = "login.html";
   });
 });

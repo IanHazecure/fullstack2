@@ -6,6 +6,12 @@ document.addEventListener("DOMContentLoaded", () => {
 
   seedUsers();
 
+  const registrationNotice = sessionStorage.getItem("authNotice");
+  if (registrationNotice) {
+    showAlert("success", registrationNotice);
+    sessionStorage.removeItem("authNotice");
+  }
+
   function showAlert(type, message) {
     alertBox.className = `alert alert-${type}`;
     alertBox.textContent = message;
