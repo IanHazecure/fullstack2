@@ -35,7 +35,7 @@ function seedUsers() {
   if (!users.some((user) => user.username === "admin")) {
     users.push({
       id: createUserId(),
-      fullName: "Administrador del sistema",
+      fullName: "Administrador Vinilos",
       username: "admin",
       email: "admin@vinilos.test",
       password: "Admin123",
@@ -139,6 +139,24 @@ function updateUser(updatedUser) {
   return true;
 }
 
+function deleteUserById(userId) {
+  const users = getUsers();
+  const nextUsers = users.filter((user) => user.id !== userId);
+
+  if (nextUsers.length === users.length) {
+    return false;
+  }
+
+  saveUsers(nextUsers);
+
+  const currentUser = getCurrentUser();
+  if (currentUser && currentUser.id === userId) {
+    logoutUser();
+  }
+
+  return true;
+}
+
 function logoutUser() {
   localStorage.removeItem(AUTH_STORAGE_KEYS.currentUser);
 }
@@ -152,14 +170,23 @@ function renderAuthNavigation(container) {
 
   if (!currentUser) {
     container.innerHTML = `
-      <a class="btn btn-outline-light" href="login.html">Iniciar sesión</a>
-      <a class="btn btn-outline-light" href="register.html">Registro de usuarios</a>
+      <a class="btn btn-outline-light" href="../index.html">Inicio</a>
+      <a class="btn btn-outline-light" href="../login.html">Iniciar sesión</a>
+      <a class="btn btn-outline-light" href="../register.html">Registro de usuarios</a>
     `;
     return;
   }
 
+  const roleLabel = currentUser.role === "admin" ? "Administrador" : "Usuario";
+  const adminLink = currentUser.role === "admin"
+    ? '<a class="btn btn-outline-light" href="../admin.html">Administración</a>'
+    : '';
+
   container.innerHTML = `
-    <a class="btn btn-outline-light" href="profile.html">Mi perfil</a>
+    <span class="btn btn-outline-light disabled auth-user-chip">${currentUser.fullName} · ${roleLabel}</span>
+    <a class="btn btn-outline-light" href="../index.html">Inicio</a>
+    ${adminLink}
+    <a class="btn btn-outline-light" href="../profile.html">Mi perfil</a>
     <button type="button" class="btn btn-outline-light js-logout-btn">Cerrar sesión</button>
   `;
 
@@ -167,7 +194,7 @@ function renderAuthNavigation(container) {
   if (logoutButton) {
     logoutButton.addEventListener("click", () => {
       logoutUser();
-      window.location.href = "index.html";
+      window.location.href = "../index.html";
     });
   }
 }

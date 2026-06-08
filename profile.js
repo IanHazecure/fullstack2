@@ -6,7 +6,6 @@ document.addEventListener("DOMContentLoaded", () => {
   const email = document.getElementById("profileEmail");
   const shipping = document.getElementById("profileShipping");
   const newPassword = document.getElementById("profileNewPassword");
-  const logoutBtn = document.getElementById("logoutBtn");
 
   function showAlert(type, message) {
     alertBox.className = `alert alert-${type}`;
@@ -34,11 +33,6 @@ document.addEventListener("DOMContentLoaded", () => {
   username.value = user.username || "";
   email.value = user.email || "";
   shipping.value = user.shippingAddress || "";
-
-  logoutBtn.addEventListener("click", () => {
-    logoutUser();
-    window.location.href = "index.html";
-  });
 
   form.addEventListener("submit", (e) => {
     e.preventDefault();

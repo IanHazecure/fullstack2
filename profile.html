@@ -10,15 +10,23 @@
     <script src="profile.js" defer></script>
   </head>
   <body>
-    <header>
-      <div class="container d-flex flex-column flex-md-row align-items-md-center justify-content-between gap-3">
-        <h1 id="logo-name" class="mb-0">Vinilos logo</h1>
-        <div class="d-flex gap-2">
-          <a class="btn btn-outline-light" href="index.html">Inicio</a>
-          <button id="logoutBtn" class="btn btn-outline-light">Cerrar sesión</button>
-        </div>
-      </div>
-    </header>
+   <header>
+  <div class="container d-flex align-items-center justify-content-between">
+
+    <!-- izq -->
+    <div class="d-flex align-items-center gap-2">
+      <img src="../logo/logo3.png" alt="Vinilos logo" class="felynos-logo">
+      <h1 id="logo-name" class="mb-0">Felynos</h1>
+    </div>
+
+<!-- der -->
+    <div id="authNav" class="d-flex flex-wrap gap-2 justify-content-center justify-content-md-end">
+      <a class="btn btn-outline-light" href="login.html">Iniciar sesión</a>
+      <a class="btn btn-outline-light" href="register.html">Registro de usuarios</a>
+    </div>
+
+  </div>
+</header>
 
     <main class="container py-5 auth-shell">
       <div class="row justify-content-center">
