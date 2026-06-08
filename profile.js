@@ -5,6 +5,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const username = document.getElementById("profileUsername");
   const email = document.getElementById("profileEmail");
   const shipping = document.getElementById("profileShipping");
+  const recoveryCode = document.getElementById("profileRecoveryCode");
   const newPassword = document.getElementById("profileNewPassword");
 
   function showAlert(type, message) {
@@ -48,6 +49,16 @@ document.addEventListener("DOMContentLoaded", () => {
     updated.shippingAddress = shipping.value.trim();
 
     if (newPassword.value) {
+      if (!recoveryCode.value.trim()) {
+        showAlert("danger", "Debes ingresar el código de recuperación para cambiar la contraseña.");
+        return;
+      }
+
+      if (!user.recoveryCode || recoveryCode.value.trim() !== user.recoveryCode) {
+        showAlert("danger", "El código de recuperación es incorrecto.");
+        return;
+      }
+
       if (newPassword.value.length < 6) {
         showAlert("danger", "La nueva contraseña debe tener al menos 6 caracteres.");
         return;
@@ -62,6 +73,7 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     showAlert("success", "Perfil actualizado.");
+    recoveryCode.value = "";
     newPassword.value = "";
   });
 });
