@@ -3,9 +3,9 @@ import { Header } from '../../../components/header/header';
 import { CategoryNav } from '../../../components/category-nav/category-nav';
 
 @Component({
-  selector: 'app-rock',
-  imports: [Header  , CategoryNav],
-  templateUrl: './rock.html',
-  styleUrl: './rock.css',
+  selector: 'app-pop',
+  imports: [Header, CategoryNav],
+  templateUrl: './pop.html',
+  styleUrl: './pop.css',
 })
-export class Rock {}
+export class Pop {}
