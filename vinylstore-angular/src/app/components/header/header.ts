@@ -1,5 +1,7 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { RouterLink } from '@angular/router';
+import { Router } from '@angular/router';
+import { AuthService } from '../../services/auth';
 
 @Component({
   selector: 'app-header',
@@ -7,4 +9,20 @@ import { RouterLink } from '@angular/router';
   templateUrl: './header.html',
   styleUrl: './header.css'
 })
-export class Header {}
+export class Header {
+  private auth = inject(AuthService);
+  private router = inject(Router);
+
+  get currentUser() {
+    return this.auth.getCurrentUser();
+  }
+
+  get isAdmin() {
+    return this.currentUser?.role === 'admin';
+  }
+
+  logout() {
+    this.auth.logout();
+    this.router.navigate(['/']);
+  }
+}

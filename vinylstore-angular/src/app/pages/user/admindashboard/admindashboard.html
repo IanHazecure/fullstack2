@@ -1,37 +1,55 @@
 <app-header />
 
-
 <main class="container py-5 auth-shell">
-      <div class="row justify-content-center">
-        <div class="col-12">
-          <div class="auth-card bg-dark bg-opacity-75 text-white border border-secondary shadow-lg rounded-4">
-            <div class="card-body p-4 p-md-5">
-                
-              <h2 class="text-center mb-3">Panel</h2>
+  <div class="row justify-content-center">
+    <div class="col-12">
+      <div class="auth-card bg-dark bg-opacity-75 text-white border border-secondary shadow-lg rounded-4">
+        <div class="card-body p-4 p-md-5">
+          <h2 class="text-center mb-3">Panel</h2>
 
-              <div id="adminAlert" class="alert d-none" role="alert" aria-live="polite"></div>
-              <div class="d-flex justify-content-between align-items-center flex-wrap gap-2 mb-3">
-                <span id="adminSummary" class="text-secondary"></span>
-                
-                <a class="btn btn-outline-light btn-sm" href="index.html">Volver al inicio</a>
-              </div>
-
-              <div class="table-responsive">
-                <table class="table table-dark table-striped align-middle mb-0">
-                  <thead>
-                    <tr>
-                      <th>Nombre</th>
-                      <th>Usuario</th>
-                      <th>Correo</th>
-                      <th>Rol</th>
-                      <th>Acciones</th>
-                    </tr>
-                  </thead>
-                  <tbody id="usersTableBody"></tbody>
-                </table>
-              </div>
+          @if (alertMessage()) {
+            <div class="alert alert-{{ alertType() }}" role="alert">
+              {{ alertMessage() }}
             </div>
+          }
+
+          <div class="d-flex justify-content-between align-items-center flex-wrap gap-2 mb-3">
+            <span class="text-secondary">Usuarios registrados: {{ users().length }}</span>
+            <a class="btn btn-outline-light btn-sm" routerLink="/">Volver al inicio</a>
+          </div>
+
+          <div class="table-responsive">
+            <table class="table table-dark table-striped align-middle mb-0">
+              <thead>
+                <tr>
+                  <th>Nombre</th>
+                  <th>Usuario</th>
+                  <th>Correo</th>
+                  <th>Rol</th>
+                  <th>Acciones</th>
+                </tr>
+              </thead>
+              <tbody>
+                @for (user of users(); track user.id) {
+                  <tr>
+                    <td>{{ user.fullName }}</td>
+                    <td>{{ user.username }}</td>
+                    <td>{{ user.email }}</td>
+                    <td>{{ user.role === 'admin' ? 'Administrador' : 'Usuario' }}</td>
+                    <td>
+                      <button class="btn btn-sm btn-outline-light"
+                        [disabled]="isCurrentUser(user.id)"
+                        (click)="deleteUser(user.id)">
+                        {{ isCurrentUser(user.id) ? 'No puedes eliminarte' : 'Eliminar' }}
+                      </button>
+                    </td>
+                  </tr>
+                }
+              </tbody>
+            </table>
           </div>
         </div>
       </div>
-    </main>
+    </div>
+  </div>
+</main>
