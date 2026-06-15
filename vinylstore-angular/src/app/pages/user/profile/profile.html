@@ -1,0 +1,59 @@
+<app-header />
+
+<main class="container py-5 auth-shell">
+  <div class="row justify-content-center">
+    <div class="col-12 col-lg-8">
+      <div class="auth-card bg-dark bg-opacity-75 text-white border border-secondary shadow-lg rounded-4">
+        <div class="card-body p-4 p-md-5">
+          <h2 class="text-center mb-3">Mi perfil</h2>
+
+          @if (alertMessage()) {
+            <div class="alert alert-{{ alertType() }}" role="alert">
+              {{ alertMessage() }}
+            </div>
+          }
+
+          <form (ngSubmit)="onSubmit()" novalidate>
+            <div class="mb-3">
+              <label class="form-label">Nombre completo</label>
+              <input class="form-control bg-dark text-white border-secondary"
+                name="fullName" [(ngModel)]="formData().fullName" required />
+            </div>
+            <div class="mb-3">
+              <label class="form-label">Nombre de usuario</label>
+              <input class="form-control bg-dark text-white border-secondary"
+                [value]="user()?.username" disabled />
+            </div>
+            <div class="mb-3">
+              <label class="form-label">Correo electrónico</label>
+              <input type="email" class="form-control bg-dark text-white border-secondary"
+                [value]="user()?.email" disabled />
+            </div>
+            <div class="mb-3">
+              <label class="form-label">Dirección de despacho</label>
+              <textarea class="form-control bg-dark text-white border-secondary"
+                name="shippingAddress" [(ngModel)]="formData().shippingAddress" rows="3"></textarea>
+            </div>
+
+            <hr class="my-3" />
+            <h5>Cambiar contraseña</h5>
+            <div class="mb-3">
+              <label class="form-label">Código de recuperación</label>
+              <input type="text" class="form-control bg-dark text-white border-secondary"
+                name="recoveryCode" [(ngModel)]="formData().recoveryCode" />
+            </div>
+            <div class="mb-3">
+              <label class="form-label">Nueva contraseña</label>
+              <input type="password" class="form-control bg-dark text-white border-secondary"
+                name="newPassword" [(ngModel)]="formData().newPassword" />
+            </div>
+
+            <div class="d-flex gap-2 justify-content-end mt-3">
+              <button type="submit" class="btn btn-primary">Guardar cambios</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</main>

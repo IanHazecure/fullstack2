@@ -1,0 +1,24 @@
+<header>
+  <div class="container d-flex align-items-center justify-content-between">
+    <div class="d-flex align-items-center gap-2">
+      <img src="/logo/logo3.png" alt="Logo" class="felynos-logo">
+      <h1 id="logo-name" class="mb-0">Felynos</h1>
+    </div>
+
+    <div id="authNav" class="d-flex flex-wrap gap-2 justify-content-center justify-content-md-end">
+      @if (!currentUser) {
+        <a class="btn btn-outline-light" routerLink="/">Inicio</a>
+        <a class="btn btn-outline-light" routerLink="/login">Iniciar sesión</a>
+        <a class="btn btn-outline-light" routerLink="/register">Registro de usuarios</a>
+      } @else {
+        <span class="btn btn-outline-light disabled">{{ currentUser.fullName }} · {{ isAdmin ? 'Administrador' : 'Usuario' }}</span>
+        <a class="btn btn-outline-light" routerLink="/">Inicio</a>
+        @if (isAdmin) {
+          <a class="btn btn-outline-light" routerLink="/admin">Administración</a>
+        }
+        <a class="btn btn-outline-light" routerLink="/profile">Mi perfil</a>
+        <button type="button" class="btn btn-outline-light" (click)="logout()">Cerrar sesión</button>
+      }
+    </div>
+  </div>
+</header>

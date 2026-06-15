@@ -1,0 +1,74 @@
+<app-header />
+
+<main class="container py-5">
+  <div class="row justify-content-center">
+    <div class="col-12 col-lg-9 col-xl-8">
+      <div class="auth-card bg-dark bg-opacity-75 text-white border border-secondary shadow-lg rounded-4">
+        <div class="card-body p-4 p-md-5">
+          <h2 class="text-center mb-3">Registro de usuarios</h2>
+          <p class="text-center text-secondary mb-4">
+            Completa tus datos para crear tu cuenta y entrar al sitio.
+          </p>
+
+          <div *ngIf="alertMessage" class="alert alert-{{ alertType }}" role="alert">
+            {{ alertMessage }}
+          </div>
+
+          <form (ngSubmit)="onSubmit()" novalidate>
+            <div class="row g-3">
+              <div class="col-12 col-md-6">
+                <label for="fullName" class="form-label">Nombre completo</label>
+                <input type="text" class="form-control bg-dark text-white border-secondary"
+                  id="fullName" name="fullName" [(ngModel)]="formData.fullName" required />
+              </div>
+
+              <div class="col-12 col-md-6">
+                <label for="username" class="form-label">Nombre de usuario</label>
+                <input type="text" class="form-control bg-dark text-white border-secondary"
+                  id="username" name="username" [(ngModel)]="formData.username" required />
+              </div>
+
+              <div class="col-12 col-md-6">
+                <label for="email" class="form-label">Correo electrónico</label>
+                <input type="email" class="form-control bg-dark text-white border-secondary"
+                  id="email" name="email" [(ngModel)]="formData.email" required />
+              </div>
+
+              <div class="col-12 col-md-6">
+                <label for="birthDate" class="form-label">Fecha de nacimiento</label>
+                <input type="date" class="form-control bg-dark text-white border-secondary"
+                  id="birthDate" name="birthDate" [(ngModel)]="formData.birthDate" required />
+              </div>
+
+              <div class="col-12 col-md-6">
+                <label for="password" class="form-label">Contraseña</label>
+                <input type="password" class="form-control bg-dark text-white border-secondary"
+                  id="password" name="password" [(ngModel)]="formData.password"
+                  minlength="6" maxlength="18" required />
+              </div>
+
+              <div class="col-12 col-md-6">
+                <label for="confirmPassword" class="form-label">Repetir contraseña</label>
+                <input type="password" class="form-control bg-dark text-white border-secondary"
+                  id="confirmPassword" name="confirmPassword" [(ngModel)]="formData.confirmPassword"
+                  minlength="6" maxlength="18" required />
+              </div>
+
+              <div class="col-12">
+                <label for="shippingAddress" class="form-label">Dirección de despacho</label>
+                <textarea class="form-control bg-dark text-white border-secondary"
+                  id="shippingAddress" name="shippingAddress" [(ngModel)]="formData.shippingAddress"
+                  rows="3" placeholder="Opcional"></textarea>
+              </div>
+            </div>
+
+            <div class="d-flex flex-column flex-sm-row gap-2 justify-content-end mt-4">
+              <button type="submit" class="btn btn-primary px-4">Enviar formulario</button>
+              <button type="button" (click)="clearForm()" class="btn btn-outline-light px-4">Limpiar formulario</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</main>
