@@ -1,6 +1,7 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { Pop } from './pop';
+import { provideRouter } from '@angular/router';
 
 describe('Pop', () => {
   let component: Pop;
@@ -9,6 +10,7 @@ describe('Pop', () => {
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       imports: [Pop],
+      providers: [provideRouter([])],
     }).compileComponents();
 
     fixture = TestBed.createComponent(Pop);
