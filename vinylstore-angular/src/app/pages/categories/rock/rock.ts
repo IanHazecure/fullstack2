@@ -1,11 +1,25 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { Header } from '../../../components/header/header';
 import { CategoryNav } from '../../../components/category-nav/category-nav';
+import { CartService } from '../../../services/cart';
 
 @Component({
   selector: 'app-rock',
-  imports: [Header  , CategoryNav],
+  imports: [Header, CategoryNav],
   templateUrl: './rock.html',
   styleUrl: './rock.css',
 })
-export class Rock {}
+export class Rock {
+  private cartService = inject(CartService);
+
+  addToCart(vinyl: {
+    id: string;
+    title: string;
+    genre: string;
+    price: number;
+    cover: string;
+    hasDiscount: boolean;
+  }) {
+    this.cartService.addToCart(vinyl);
+  }
+}
