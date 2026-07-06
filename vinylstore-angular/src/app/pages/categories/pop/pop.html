@@ -2,67 +2,24 @@
 <main>
   <app-category-nav />
   <section class="grid-vinilos">
-
-    <article class="vinilo">
-      <img src="/covers/thriller.png" alt="Album Pop 1" />
-      <div class="vinilo-content">
-        <h3>Thriller</h3>
-        <p>Pop/Disco</p>
-        <p class="precio">$45.000</p>
-        <span class="descuento">Descuento: Si</span>
-        <button class="btn-agregar" (click)="addToCart({
-          id: 'thriller',
-          title: 'Thriller',
-          genre: 'Pop/Disco',
-          price: 45000,
-          cover: '/covers/thriller.png',
-          hasDiscount: true
-        })">
-          + Agregar al carrito
-        </button>
-      </div>
-    </article>
-
-    <article class="vinilo">
-      <img src="/covers/dare.png" alt="Album Pop 2" />
-      <div class="vinilo-content">
-        <h3>Dare</h3>
-        <p>Alternative/Indie</p>
-        <p class="precio">$38.000</p>
-        <span class="sin-descuento">Descuento: No</span>
-        <button class="btn-agregar" (click)="addToCart({
-          id: 'dare',
-          title: 'Dare',
-          genre: 'Alternative/Indie',
-          price: 38000,
-          cover: '/covers/dare.png',
-          hasDiscount: false
-        })">
-          + Agregar al carrito
-        </button>
-      </div>
-    </article>
-
-    <article class="vinilo">
-      <img src="/covers/kissme.jpg" alt="Album Pop 3" />
-      <div class="vinilo-content">
-        <h3>Kiss Me, Kiss Me, Kiss Me</h3>
-        <p>Pop Rock/Pop</p>
-        <p class="precio">$34.000</p>
-        <span class="descuento">Descuento: Si</span>
-        <button class="btn-agregar" (click)="addToCart({
-          id: 'kissme',
-          title: 'Kiss Me, Kiss Me, Kiss Me',
-          genre: 'Pop Rock/Pop',
-          price: 34000,
-          cover: '/covers/kissme.jpg',
-          hasDiscount: true
-        })">
-          + Agregar al carrito
-        </button>
-      </div>
-    </article>
-
+    @for (album of albums(); track album.id) {
+      <article class="vinilo">
+        <img [src]="album.cover" [alt]="album.title" />
+        <div class="vinilo-content">
+          <h3>{{ album.title }}</h3>
+          <p>{{ album.genre }}</p>
+          <p class="precio">{{ album.price | currency:'CLP':'symbol':'1.0-0' }}</p>
+          @if (album.hasDiscount) {
+            <span class="descuento">Descuento: Si</span>
+          } @else {
+            <span class="sin-descuento">Descuento: No</span>
+          }
+          <button class="btn-agregar" (click)="addToCart(album)">
+            + Agregar al carrito
+          </button>
+        </div>
+      </article>
+    }
   </section>
-  <a class="nav-volver" href="../index.html">Volver al inicio</a>
+  <a class="nav-volver" routerLink="/">Volver al inicio</a>
 </main>

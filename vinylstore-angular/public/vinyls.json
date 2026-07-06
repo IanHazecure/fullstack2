@@ -1,0 +1,106 @@
+{
+  "pop": [
+    {
+      "id": "thriller",
+      "title": "Thriller",
+      "genre": "Pop/Disco",
+      "price": 45000,
+      "cover": "/covers/thriller.png",
+      "hasDiscount": true
+    },
+    {
+      "id": "dare",
+      "title": "Dare",
+      "genre": "Alternative/Indie",
+      "price": 38000,
+      "cover": "/covers/dare.png",
+      "hasDiscount": false
+    },
+    {
+      "id": "kissme",
+      "title": "Kiss Me, Kiss Me, Kiss Me",
+      "genre": "Pop Rock/Pop",
+      "price": 34000,
+      "cover": "/covers/kissme.jpg",
+      "hasDiscount": true
+    }
+  ],
+  "jazz": [
+    {
+      "id": "kindofblue",
+      "title": "Kind of Blue",
+      "genre": "Cool Jazz",
+      "price": 33000,
+      "cover": "/covers/KindofBlue.jpg",
+      "hasDiscount": true
+    },
+    {
+      "id": "timeout",
+      "title": "Time Out",
+      "genre": "Hard Bop",
+      "price": 31000,
+      "cover": "/covers/timeout.jpg",
+      "hasDiscount": false
+    },
+    {
+      "id": "bluetrain",
+      "title": "Blue Train",
+      "genre": "Be-bop",
+      "price": 29000,
+      "cover": "/covers/bluetrain.jpg",
+      "hasDiscount": true
+    }
+  ],
+  "rock": [
+    {
+      "id": "tdsotm",
+      "title": "Dark Side of the Moon",
+      "genre": "Progressive Rock/Art Rock",
+      "price": 42000,
+      "cover": "/covers/tdsotm.png",
+      "hasDiscount": true
+    },
+    {
+      "id": "disintegration",
+      "title": "Disintegration",
+      "genre": "Gothic rock/Alternative rock",
+      "price": 36000,
+      "cover": "/covers/Disintegration.jpg",
+      "hasDiscount": false
+    },
+    {
+      "id": "intheflatfield",
+      "title": "In the Flat Field",
+      "genre": "Post-Punk/Dark Glam",
+      "price": 39000,
+      "cover": "/covers/flatfield.jpg",
+      "hasDiscount": true
+    }
+  ],
+  "punk": [
+    {
+      "id": "antitodo",
+      "title": "Anti Todo",
+      "genre": "Punk Rock",
+      "price": 50000,
+      "cover": "/covers/antitodo.jpg",
+      "hasDiscount": true
+    },
+    {
+      "id": "fiesta",
+      "title": "Fiesta",
+      "genre": "Punk Rock/Hardcore Punk",
+      "price": 47000,
+      "cover": "/covers/fiesta.jpg",
+      "hasDiscount": false
+    },
+    {
+      "id": "famousmonsters",
+      "title": "Famous Monsters",
+      "genre": "Horror Punk/Heavy Metal",
+      "price": 44000,
+      "cover": "/covers/monters.png",
+      "hasDiscount": true
+    }
+  ]
+}

@@ -1,24 +1,29 @@
-import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { Component, inject, OnInit, signal } from '@angular/core';
+import { CommonModule } from '@angular/common';
+import { HttpClient } from '@angular/common/http';
+import { Header } from '../../../components/header/header';
+import { CategoryNav } from '../../../components/category-nav/category-nav';
+import { CartService } from '../../../services/cart';
 
-import { Pop } from './pop';
-import { provideRouter } from '@angular/router';
+@Component({
+  selector: 'app-pop',
+  standalone: true,
+  imports: [CommonModule, Header, CategoryNav],
+  templateUrl: './pop.html',
+  styleUrl: './pop.css',
+})
+export class Pop implements OnInit {
+  private cartService = inject(CartService);
+  private http = inject(HttpClient);
+  albums = signal<any[]>([]);
 
-describe('Pop', () => {
-  let component: Pop;
-  let fixture: ComponentFixture<Pop>;
+  ngOnInit() {
+    this.http.get<any>('/assets/vinyls.json').subscribe(data => {
+      this.albums.set(data.pop);
+    });
+  }
 
-  beforeEach(async () => {
-    await TestBed.configureTestingModule({
-      imports: [Pop],
-      providers: [provideRouter([])],
-    }).compileComponents();
-
-    fixture = TestBed.createComponent(Pop);
-    component = fixture.componentInstance;
-    await fixture.whenStable();
-  });
-
-  it('should create', () => {
-    expect(component).toBeTruthy();
-  });
-});
+  addToCart(vinyl: any) {
+    this.cartService.addToCart(vinyl);
+  }
+}
