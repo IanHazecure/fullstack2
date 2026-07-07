@@ -78,3 +78,21 @@
   color: black;
   flex-shrink: 0;
 }
+
+.subnav {
+  display: flex;
+  justify-content: center;
+  gap: 32px;
+  padding: 12px 48px;
+  border-bottom: 1px solid rgba(255,255,255,0.1);
+}
+
+.subnav a {
+  color: black;
+  font-size: 0.85rem;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  cursor: pointer;
+  text-decoration: none;
+  transition: color 0.2s;
+}

@@ -1,0 +1,42 @@
+<app-header />
+<main class="catalog-layout">
+
+  <aside class="catalog-sidebar">
+    <h3>Generos</h3>
+    <div class="filter-search">
+      <input type="text" placeholder="Buscar género..." />
+    </div>
+    <ul class="filter-list">
+      @for (genre of genres; track genre) {
+        <li>
+          <label class="filter-item" [class.active]="isActive(genre)">
+            <input type="checkbox" [checked]="isActive(genre)" (change)="toggleFilter(genre)" />
+            {{ genre }}
+          </label>
+        </li>
+      }
+    </ul>
+  </aside>
+
+  <section class="catalog-grid">
+  @for (product of filtered; track product.id) {
+    <article class="vinilo">
+      <div class="vinilo-cover">
+        <img [src]="product.cover" [alt]="product.title" />
+        @if (product.hasDiscount) {
+          <div class="discount-ribbon">DESCUENTO</div>
+        }
+      </div>
+      <div class="vinilo-content">
+        <span class="vinilo-category">{{ product.category }}</span>
+        <h3>{{ product.title }}</h3>
+        <!-- <p>{{ product.genre }}</p> -->
+        <p class="precio">{{ formatPrice(product.price) }}</p>
+        <button class="btn-agregar" (click)="addToCart(product)">
+          + Agregar al carrito
+        </button>
+      </div>
+    </article>
+  }
+</section>
+</main>
