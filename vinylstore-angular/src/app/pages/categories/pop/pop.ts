@@ -4,11 +4,12 @@ import { HttpClient } from '@angular/common/http';
 import { Header } from '../../../components/header/header';
 import { CategoryNav } from '../../../components/category-nav/category-nav';
 import { CartService } from '../../../services/cart';
+import { RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-pop',
   standalone: true,
-  imports: [CommonModule, CurrencyPipe, Header, CategoryNav],
+  imports: [RouterLink, CommonModule, CurrencyPipe, Header, CategoryNav],
   templateUrl: './pop.html',
   styleUrl: './pop.css',
 })
