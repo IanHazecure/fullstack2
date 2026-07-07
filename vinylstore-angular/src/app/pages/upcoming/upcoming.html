@@ -1,0 +1,18 @@
+<app-header />
+<main>
+  <h2 class="upcoming-title">Próximos Lanzamientos</h2>
+  <section class="upcoming-grid">
+    @for (release of releases(); track release.id) {
+      <article class="upcoming-card">
+        <div class="upcoming-badge">Próximamente</div>
+        <img [src]="release.cover" [alt]="release.title" class="upcoming-cover" />
+        <div class="upcoming-info">
+          <h3>{{ release.title }}</h3>
+          <p class="upcoming-artist">{{ release.artist }}</p>
+          <p class="upcoming-subtitle">{{ release.subtitle }}</p>
+          <button class="btn-notify" disabled>Notifícame</button>
+        </div>
+      </article>
+    }
+  </section>
+</main>
