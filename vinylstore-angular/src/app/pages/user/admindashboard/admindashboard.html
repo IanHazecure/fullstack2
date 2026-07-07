@@ -13,41 +13,98 @@
             </div>
           }
 
-          <div class="d-flex justify-content-between align-items-center flex-wrap gap-2 mb-3">
-            <span class="text-secondary">Usuarios registrados: {{ users().length }}</span>
+          <!-- Tabs -->
+          <ul class="nav nav-tabs nav-tabs-dark mb-4">
+            <li class="nav-item">
+              <button class="nav-link" [class.active]="activeTab() === 'users'"
+                (click)="activeTab.set('users')">
+                Usuarios ({{ users().length }})
+              </button>
+            </li>
+            <li class="nav-item">
+              <button class="nav-link" [class.active]="activeTab() === 'products'"
+                (click)="activeTab.set('products')">
+                Productos ({{ products().length }})
+              </button>
+            </li>
+          </ul>
+
+          <div class="d-flex justify-content-end mb-3">
             <a class="btn btn-outline-light btn-sm" routerLink="/">Volver al inicio</a>
           </div>
 
-          <div class="table-responsive">
-            <table class="table table-dark table-striped align-middle mb-0">
-              <thead>
-                <tr>
-                  <th>Nombre</th>
-                  <th>Usuario</th>
-                  <th>Correo</th>
-                  <th>Rol</th>
-                  <th>Acciones</th>
-                </tr>
-              </thead>
-              <tbody>
-                @for (user of users(); track user.id) {
+          @if (activeTab() === 'users') {
+            <div class="table-responsive">
+              <table class="table table-dark table-striped align-middle mb-0">
+                <thead>
                   <tr>
-                    <td>{{ user.fullName }}</td>
-                    <td>{{ user.username }}</td>
-                    <td>{{ user.email }}</td>
-                    <td>{{ user.role === 'admin' ? 'Administrador' : 'Usuario' }}</td>
-                    <td>
-                      <button class="btn btn-sm btn-outline-light"
-                        [disabled]="isCurrentUser(user.id)"
-                        (click)="deleteUser(user.id)">
-                        {{ isCurrentUser(user.id) ? 'No puedes eliminarte' : 'Eliminar' }}
-                      </button>
-                    </td>
+                    <th>Nombre</th>
+                    <th>Usuario</th>
+                    <th>Correo</th>
+                    <th>Rol</th>
+                    <th>Acciones</th>
                   </tr>
-                }
-              </tbody>
-            </table>
-          </div>
+                </thead>
+                <tbody>
+                  @for (user of users(); track user.id) {
+                    <tr>
+                      <td>{{ user.fullName }}</td>
+                      <td>{{ user.username }}</td>
+                      <td>{{ user.email }}</td>
+                      <td>{{ user.role === 'admin' ? 'Administrador' : 'Usuario' }}</td>
+                      <td>
+                        <button class="btn btn-sm btn-outline-light"
+                          [disabled]="isCurrentUser(user.id)"
+                          (click)="deleteUser(user.id)">
+                          {{ isCurrentUser(user.id) ? 'No puedes' : 'Eliminar' }}
+                        </button>
+                      </td>
+                    </tr>
+                  }
+                </tbody>
+              </table>
+            </div>
+          }
+<!-- 
+los vinilos -->
+          @if (activeTab() === 'products') {
+            <div class="table-responsive">
+              <table class="table table-dark table-striped align-middle mb-0">
+                <thead>
+                  <tr>
+                    <th>Portada</th>
+                    <th>Título</th>
+                    <th>Género</th>
+                    <th>Categoría</th>
+                    <th>Precio</th>
+                    <th>Descuento</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  @for (product of products(); track product.id) {
+                    <tr>
+                      <td>
+                        <img [src]="product.cover" [alt]="product.title"
+                          style="width:48px; height:48px; object-fit:cover; border-radius:4px;" />
+                      </td>
+                      <td>{{ product.title }}</td>
+                      <td>{{ product.genre }}</td>
+                      <td>{{ product.category }}</td>
+                      <td>{{ formatPrice(product.price) }}</td>
+                      <td>
+                        @if (product.hasDiscount) {
+                          <span class="badge bg-success">Sí</span>
+                        } @else {
+                          <span class="badge bg-secondary">No</span>
+                        }
+                      </td>
+                    </tr>
+                  }
+                </tbody>
+              </table>
+            </div>
+          }
+
         </div>
       </div>
     </div>

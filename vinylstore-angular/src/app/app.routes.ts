@@ -9,6 +9,7 @@ import { Recovery } from './pages/auth/recovery/recovery';
 import { Register } from './pages/auth/register/register';
 import { Profile } from './pages/user/profile/profile';
 import { Upcoming } from './pages/upcoming/upcoming';
+import { AdminDashboard } from './pages/user/admindashboard/admindashboard';
 
 export const routes: Routes = [
   { path: '', component: Intro },
@@ -21,4 +22,5 @@ export const routes: Routes = [
   { path: 'register', component: Register },
   { path: 'profile', component: Profile },
   { path: 'upcoming', component: Upcoming },
+  { path: 'admin', component: AdminDashboard },
 ];

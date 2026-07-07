@@ -45,7 +45,7 @@ export class AdminDashboard implements OnInit {
       this.alertType.set('danger');
       return;
     }
-    this.alertMessage.set('Usuario eliminado correctamente.');
+    this.alertMessage.set('Usuario eliminado.');
     this.alertType.set('success');
     this.users.set(this.auth.getUsers());
   }
