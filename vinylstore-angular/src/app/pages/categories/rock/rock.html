@@ -1,69 +1,25 @@
 <app-header />
-
 <main>
   <app-category-nav />
-
   <section class="grid-vinilos">
-    <article class="vinilo">
-      <img src="/covers/tdsotm.png" alt="Album Rock 1" />
-      <div class="vinilo-content">
-        <h3>Dark Side of the Moon</h3>
-        <p>Progressive Rock/Art Rock</p>
-        <p class="precio">$42.000</p>
-        <span class="descuento">Descuento: Si</span>
-        <button class="btn-agregar" (click)="addToCart({
-          id: 'tdsotm',
-          title: 'Dark Side of the Moon',
-          genre: 'Progressive Rock/Art Rock',
-          price: 42000,
-          cover: '/covers/tdsotm.png',
-          hasDiscount: true
-        })">
-          + Agregar al carrito
-        </button>
-      </div>
-    </article>
-
-    <article class="vinilo">
-      <img src="/covers/Disintegration.jpg" alt="Album Rock 2" />
-      <div class="vinilo-content">
-        <h3>Disintegration</h3>
-        <p>Gothic rock/Alternative rock</p>
-        <p class="precio">$36.000</p>
-        <span class="sin-descuento">Descuento: No</span>
-        <button class="btn-agregar" (click)="addToCart({
-          id: 'disintegration',
-          title: 'Disintegration',
-          genre: 'Gothic rock/Alternative rock',
-          price: 36000,
-          cover: '/covers/Disintegration.jpg',
-          hasDiscount: false
-        })">
-          + Agregar al carrito
-        </button>
-      </div>
-    </article>
-
-    <article class="vinilo">
-      <img src="/covers/flatfield.jpg" alt="Album Rock 3" />
-      <div class="vinilo-content">
-        <h3>In the Flat Field</h3>
-        <p>Post-Punk/Dark Glam</p>
-        <p class="precio">$39.000</p>
-        <span class="descuento">Descuento: Si</span>
-        <button class="btn-agregar" (click)="addToCart({
-          id: 'intheflatfield',
-          title: 'In the Flat Field',
-          genre: 'Post-Punk/Dark Glam',
-          price: 39000,
-          cover: '/covers/flatfield.jpg',
-          hasDiscount: true
-        })">
-          + Agregar al carrito
-        </button>
-      </div>
-    </article>
+    @for (album of albums(); track album.id) {
+      <article class="vinilo">
+        <img [src]="album.cover" [alt]="album.title" />
+        <div class="vinilo-content">
+          <h3>{{ album.title }}</h3>
+          <p>{{ album.genre }}</p>
+          <p class="precio">{{ album.price | currency:'CLP':'symbol':'1.0-0' }}</p>
+          @if (album.hasDiscount) {
+            <span class="descuento">Descuento: Si</span>
+          } @else {
+            <span class="sin-descuento">Descuento: No</span>
+          }
+          <button class="btn-agregar" (click)="addToCart(album)">
+            + Agregar al carrito
+          </button>
+        </div>
+      </article>
+    }
   </section>
-
-  <a class="nav-volver" href="../index.html">Volver al inicio</a>
+  <a class="nav-volver" routerLink="/">Volver al inicio</a>
 </main>

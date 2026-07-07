@@ -1,69 +1,25 @@
 <app-header />
-
 <main>
   <app-category-nav />
-
   <section class="grid-vinilos">
-    <article class="vinilo">
-      <img src="/covers/antitodo.jpg" alt="Album Punk 1" />
-      <div class="vinilo-content">
-        <h3>Anti Todo</h3>
-        <p>Punk Rock</p>
-        <p class="precio">$50.000</p>
-        <span class="descuento">Descuento: Si</span>
-        <button class="btn-agregar" (click)="addToCart({
-          id: 'antitodo',
-          title: 'Anti Todo',
-          genre: 'Punk Rock',
-          price: 50000,
-          cover: '/covers/antitodo.jpg',
-          hasDiscount: true
-        })">
-          + Agregar al carrito
-        </button>
-      </div>
-    </article>
-
-    <article class="vinilo">
-      <img src="/covers/fiesta.jpg" alt="Album Punk 2" />
-      <div class="vinilo-content">
-        <h3>Fiesta</h3>
-        <p>Punk Rock/Hardcore Punk</p>
-        <p class="precio">$47.000</p>
-        <span class="sin-descuento">Descuento: No</span>
-        <button class="btn-agregar" (click)="addToCart({
-          id: 'fiesta',
-          title: 'Fiesta',
-          genre: 'Punk Rock/Hardcore Punk',
-          price: 47000,
-          cover: '/covers/fiesta.jpg',
-          hasDiscount: false
-        })">
-          + Agregar al carrito
-        </button>
-      </div>
-    </article>
-
-    <article class="vinilo">
-      <img src="/covers/monters.png" alt="Album Punk 3" />
-      <div class="vinilo-content">
-        <h3>Famous Monsters</h3>
-        <p>Horror Punk/Heavy Metal</p>
-        <p class="precio">$44.000</p>
-        <span class="descuento">Descuento: Si</span>
-        <button class="btn-agregar" (click)="addToCart({
-          id: 'famousmonsters',
-          title: 'Famous Monsters',
-          genre: 'Horror Punk/Heavy Metal',
-          price: 44000,
-          cover: '/covers/monters.png',
-          hasDiscount: true
-        })">
-          + Agregar al carrito
-        </button>
-      </div>
-    </article>
+    @for (album of albums(); track album.id) {
+      <article class="vinilo">
+        <img [src]="album.cover" [alt]="album.title" />
+        <div class="vinilo-content">
+          <h3>{{ album.title }}</h3>
+          <p>{{ album.genre }}</p>
+          <p class="precio">{{ album.price | currency:'CLP':'symbol':'1.0-0' }}</p>
+          @if (album.hasDiscount) {
+            <span class="descuento">Descuento: Si</span>
+          } @else {
+            <span class="sin-descuento">Descuento: No</span>
+          }
+          <button class="btn-agregar" (click)="addToCart(album)">
+            + Agregar al carrito
+          </button>
+        </div>
+      </article>
+    }
   </section>
-
-  <a class="nav-volver" href="../index.html">Volver al inicio</a>
+  <a class="nav-volver" routerLink="/">Volver al inicio</a>
 </main>
