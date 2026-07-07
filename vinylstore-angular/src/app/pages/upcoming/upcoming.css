@@ -15,9 +15,8 @@
 
 .upcoming-card {
   position: relative;
-  background: #1a1a2e;
+  background: #000000;
   color: #fff;
-  border-radius: 12px;
   overflow: hidden;
   box-shadow: 0 4px 16px rgba(0,0,0,0.2);
   display: flex;
@@ -76,7 +75,6 @@
   background: #333;
   color: #777;
   border: none;
-  border-radius: 6px;
   font-size: 0.85rem;
   cursor: not-allowed;
 }

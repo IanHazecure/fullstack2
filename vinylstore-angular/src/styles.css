@@ -65,25 +65,6 @@ main {
 }
 
 
-#fav-categories {
-  font-family: "Montserrat", sans-serif;
-  text-align: center;
-  font-size: 100px;
-  margin: 20px 0;
-  color: #ffffff;
-  padding: 12px;
-  border-radius: 10px;
-
-}
-
-
-.categorias {
-  font-family: "Montserrat", sans-serif;
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 18px;
-}
-
 .btn-primary {
   background: linear-gradient(135deg, #c23d4b, #7f1d1d);
   border-color: transparent;
@@ -98,77 +79,8 @@ main {
 .auth-user-chip {
   pointer-events: none;
 }
-.category-card {
-  background: #ca992e;
-  border-radius: 14px;
-  overflow: hidden;
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
-  text-decoration: none;
-  color: #1f1f1f;
-  display: block;
-  transition: 0.3s;
-}
-
-.category-card:hover {
-  transform: scale(1.04);
-  transform-origin: bottom;
-  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.5);
-}
-
-.category-card img {
-  width: 100%;
-  object-fit: cover;
-}
-
-.category-card h3 {
-  padding: 14px;
-    
-}
-
-.grid-vinilos {
-  display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 18px;
-}
-
-/* .vinilo {
-  background: #ffffff;
-  border-radius: 14px;
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
-  overflow: hidden;
-} */
-
-.nav-volver {
-  display: inline-block;
-  margin-top: 20px;
-  background: #000000;
-  color: #fff;
-  text-decoration: none;
-  padding: 10px 14px;
-
-}
 
 
-.categoria-nav {
-    justify-content: center; 
-    gap: 10px;  
-  display: flex;
-  gap: 20px;
-  margin-bottom: 20px;
-}
-
-.categoria-nav a {
-  background-color: rgb(0, 0, 0);
-  color: #ffffff;
-  text-decoration: none;
-  padding: 10px 20px;
-  border-radius: 8px;
-  transition: 0.3s ease;
-}
-
-.categoria-nav a:hover {
-  background-color: rgba(139, 139, 139, 0.418);
-}
 
 @media (max-width: 768px) {
   header {

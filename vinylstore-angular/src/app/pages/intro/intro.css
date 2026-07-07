@@ -75,16 +75,6 @@
   box-shadow: 0 4px 12px rgba(0,0,0,0.4);
 }
 
-@media (max-width: 600px) {
-  .upcoming-banner {
-    flex-direction: column;
-    padding: 24px;
-  }
-
-  .upcoming-banner-covers {
-    justify-content: center;
-  }
-}
 .hero-section {
   display: flex;
   align-items: center;
@@ -120,6 +110,7 @@
   flex-direction: column;
   gap: 16px;
   color: #000000;
+  flex: 1;
 }
 
 .hero-text h1 {
@@ -131,6 +122,6 @@
 .hero-text p {
   font-size: 1.1rem;
   color: black;
-  max-width: 400px;
+  max-width: 100%;
   line-height: 1.6;
 }
