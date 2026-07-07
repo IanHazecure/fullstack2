@@ -56,10 +56,6 @@
   cursor: pointer;
 }
 
-.filter-item.active {
-  color: #000000;
-  font-weight: 600;
-}
 
 .catalog-grid {
   flex: 1;
