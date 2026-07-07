@@ -18,7 +18,7 @@ export class Catalog implements OnInit {
   allProducts = signal<any[]>([]);
   filters = signal<string[]>([]);
 
-  genres = ['Rock', 'Pop', 'Jazz', 'Punk'];
+  genres = ['Rock', 'Pop', 'Jazz', 'Punk', 'Rap', 'Metal'];
 
   get filtered() {
     const active = this.filters();
@@ -29,11 +29,13 @@ export class Catalog implements OnInit {
   ngOnInit() {
     this.http.get<any>('/vinyls.json').subscribe(data => {
       const all = [
-        ...data.rock.map((v: any) => ({ ...v, category: 'Rock' })),
-        ...data.pop.map((v: any) => ({ ...v, category: 'Pop' })),
-        ...data.jazz.map((v: any) => ({ ...v, category: 'Jazz' })),
-        ...data.punk.map((v: any) => ({ ...v, category: 'Punk' })),
-      ];
+  ...data.rock.map((v: any) => ({ ...v, category: 'Rock' })),
+  ...data.pop.map((v: any) => ({ ...v, category: 'Pop' })),
+  ...data.jazz.map((v: any) => ({ ...v, category: 'Jazz' })),
+  ...data.punk.map((v: any) => ({ ...v, category: 'Punk' })),
+  ...data.rap.map((v: any) => ({ ...v, category: 'Rap' })),
+  ...data.metal.map((v: any) => ({ ...v, category: 'Metal' }))
+];
       this.allProducts.set(all);
     });
   }

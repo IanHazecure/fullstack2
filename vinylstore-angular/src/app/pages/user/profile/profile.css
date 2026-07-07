@@ -1,0 +1,141 @@
+
+.profile-shell {
+  min-height: calc(100vh - 80px);
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  padding: 3rem 1rem;
+  background: #f5f5f5;
+}
+
+
+.profile-card {
+  width: 800px;
+  background: #fff;
+  padding: 2.5rem;
+  border-radius: 14px;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
+}
+
+.profile-title {
+  text-align: center;
+  margin-bottom: 2rem;
+  font-size: 2rem;
+  font-weight: 700;
+  color: #222;
+}
+
+
+h5 {
+  margin: 1.5rem 0 1rem;
+  font-size: 1.1rem;
+  color: #444;
+}
+
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 1.25rem;
+}
+
+.form-group label {
+  margin-bottom: 0.45rem;
+  font-weight: 600;
+  color: #000000;
+}
+
+
+.form-group input,
+.form-group textarea {
+  width: 100%;
+  padding: 0.85rem 1rem;
+  border: 1px solid #d6d6d6;
+  font-size: 1rem;
+  transition: all 0.25s ease;
+  background: #fff;
+  box-sizing: border-box;
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+  outline: none;
+  border-color: #000000;
+  box-shadow: 0 0 0 3px rgba(63, 81, 181, 0.15);
+}
+
+.form-group input:disabled {
+  background: #f0f0f0;
+  color: #666;
+  cursor: not-allowed;
+}
+
+hr {
+  margin: 2rem 0;
+  border: none;
+  border-top: 1px solid #000000;
+}
+
+.alert {
+  padding: 0.9rem 1rem;
+  border-radius: 8px;
+  margin-bottom: 1.5rem;
+  font-weight: 500;
+}
+
+.alert-success {
+  background: #eaf8ef;
+  color: #198754;
+  border: 1px solid #b8e2c7;
+}
+
+.alert-danger {
+  background: #fdecec;
+  color: #dc3545;
+  border: 1px solid #f5c2c7;
+}
+
+
+.form-actions {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 2rem;
+}
+
+.form-actions button {
+  padding: 0.9rem 2rem;
+  border: 1px solid #000000;
+  border-radius: 8px;
+  background: #000000;
+  color: white;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.form-actions button:hover {
+  background: #ffffff;
+  color: #000000;
+ 
+}
+
+
+/* Responsive */
+@media (max-width: 768px) {
+  .profile-card {
+    padding: 1.5rem;
+  }
+
+  .profile-title {
+    font-size: 1.6rem;
+  }
+
+  .form-actions {
+    justify-content: center;
+  }
+
+  .form-actions button {
+    width: 100%;
+  }
+}

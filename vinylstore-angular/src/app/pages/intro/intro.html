@@ -1,42 +1,43 @@
-
-
 <app-header />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Mono:ital,wght@0,300;0,400;0,500;1,300;1,400;1,500&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@0,100..700;1,100..700&display=swap" rel="stylesheet">
+
 
 <main>
-<section class="upcoming-banner" routerLink="/upcoming">
-  <div class="upcoming-banner-content">
-    <span class="upcoming-banner-tag">Próximamente</span>
-    <h2>Rough Trade 50: Anniversary Edition</h2>
-    <p>Blur · Neutral Milk Hotel · The White Stripes</p>
-    <button class="upcoming-banner-btn">Ver lanzamientos →</button>
-  </div>
-<div class="upcoming-banner-covers">
-  <img src="https://ianhazecure.github.io/vinyl-api/covers/blur-roughtrade50.jpg" alt="Blur" />
-  <img src="https://ianhazecure.github.io/vinyl-api/covers/nmh-roughtrade50.jpg" alt="Neutral Milk Hotel" />
-  <img src="https://ianhazecure.github.io/vinyl-api/covers/elephant-roughtrade50.jpg" alt="White Stripes" />
-</div>
-</section>
+  <section class="upcoming-banner" routerLink="/upcoming">
+    <div class="upcoming-banner-content">
+      <span class="upcoming-banner-tag">Próximamente</span>
+      <h2>Rough Trade 50: Anniversary Edition</h2>
+      <p>Blur · Neutral Milk Hotel · The White Stripes</p>
+      <button class="upcoming-banner-btn">Ver lanzamientos →</button>
+    </div>
+    <div class="upcoming-banner-covers">
+      <img src="https://ianhazecure.github.io/vinyl-api/covers/blur-roughtrade50.jpg" alt="Blur" />
+      <img src="https://ianhazecure.github.io/vinyl-api/covers/nmh-roughtrade50.jpg" alt="Neutral Milk Hotel" />
+      <img src="https://ianhazecure.github.io/vinyl-api/covers/elephant-roughtrade50.jpg" alt="White Stripes" />
+    </div>
+  </section>
 
-<!-- 
+  <!-- 
   <h2 id="fav-categories">Categorias</h2> -->
   <section class="categorias">
 
     <div class="hero-section">
-    <div class="hero-slider">
-      @for (slide of slides; track $index) {
+      <div class="hero-slider">
+        @for (slide of slides; track $index) {
         <img [src]="slide" class="hero-slide" [class.active]="$index === currentSlide()" />
-      }
+        }
+      </div>
+      <div class="hero-text">
+        <h1>LO MEJOR DEL 2026 HASTA ESTE MES</h1>
+        <p>Nuestra seleccion musical tiene grandes sorpresas para todos los que visitan el local. Te mostramos los regresos mas esperados de las bandas que ya conoces y los nuevos nombres que marcan el ritmo hoy en nuestra tienda de vinilos.</p>
+      </div>
+
     </div>
-    <div class="hero-text">
-      <h1>Los Mejores Vinilos del Momento</h1>
-      <p>Nuestra selección habla por sí sola. Desde los regresos 
-más esperados hasta los artistas que están definiendo 
-el sonido de hoy, estos son los discos que no pueden 
-faltar en tu colección. Música que trasciende, 
-prensada en vinilo para que dure para siempre.</p>
-    </div>
-    
-  </div>
   </section>
-  
+
 </main>
