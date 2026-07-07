@@ -1,50 +1,48 @@
 {
   "pop": [
-    { "id": "thriller", "title": "Thriller", "genre": "Pop/Disco", "price": 45000, "cover": "/covers/thriller.png", "hasDiscount": true },
-    { "id": "dare", "title": "Dare", "genre": "Alternative/Indie", "price": 38000, "cover": "/covers/dare.png", "hasDiscount": false },
-    { "id": "kissme", "title": "Kiss Me, Kiss Me, Kiss Me", "genre": "Pop Rock/Pop", "price": 34000, "cover": "/covers/kissme.jpg", "hasDiscount": true },
-    { "id": "soy-como-quiero-ser", "title": "Soy Como Quiero Ser", "genre": "Pop Latino", "price": 32000, "cover": "/covers/soy-como-quiero-ser.jpg", "hasDiscount": false },
-    { "id": "reencuentro", "title": "Reencuentro", "genre": "Balada/Pop", "price": 35000, "cover": "/covers/reencuentro.jpg", "hasDiscount": false },
-    { "id": "amor-libre", "title": "Amor Libre", "genre": "Balada Romántica", "price": 31000, "cover": "/covers/amor-libre.jpg", "hasDiscount": false },
-    { "id": "recuerdos-2", "title": "Recuerdos 2", "genre": "Balada/Pop", "price": 27000, "cover": "/covers/recuerdos-2.jpg", "hasDiscount": false },
-    { "id": "luis-miguel-20-anos", "title": "Luis Miguel 20 Años", "genre": "Pop Latino/Balada", "price": 44000, "cover": "/covers/luis-miguel-20-anos.jpg", "hasDiscount": false },
-    { "id": "bandido", "title": "Bandido", "genre": "Pop/New Wave", "price": 28000, "cover": "/covers/bandido.jpg", "hasDiscount": false },
-    { "id": "luis-miguel-20-anos", "title": "Luis Miguel 20 Años", "genre": "Pop Latino/Balada", "price": 44000, "cover": "/covers/luis-miguel-20-anos.jpg", "hasDiscount": false }
+    { "id": "thriller", "title": "Thriller", "band": "Michael Jackson", "genre": "Pop/Disco", "price": 45000, "cover": "/covers/thriller.png", "hasDiscount": true },
+    { "id": "dare", "title": "Dare", "band": "The Human League", "genre": "Alternative/Indie", "price": 38000, "cover": "/covers/dare.png", "hasDiscount": false },
+    { "id": "kissme", "title": "Kiss Me, Kiss Me, Kiss Me", "band": "The Cure", "genre": "Pop Rock/Pop", "price": 34000, "cover": "/covers/kissme.jpg", "hasDiscount": true },
+    { "id": "soy-como-quiero-ser", "title": "Soy Como Quiero Ser", "band": "Luis Miguel", "genre": "Pop Latino", "price": 32000, "cover": "/covers/soy-como-quiero-ser.jpg", "hasDiscount": false },
+    { "id": "reencuentro", "title": "Reencuentro", "band": "Myriam Hernández", "genre": "Balada/Pop", "price": 35000, "cover": "/covers/reencuentro.jpg", "hasDiscount": false },
+    { "id": "amor-libre", "title": "Amor Libre", "band": "Camilo Sesto", "genre": "Balada Romántica", "price": 31000, "cover": "/covers/amor-libre.jpg", "hasDiscount": false },
+    { "id": "recuerdos-2", "title": "Recuerdos 2", "band": "Los Prisioneros", "genre": "Balada/Pop", "price": 27000, "cover": "/covers/recuerdos-2.jpg", "hasDiscount": false },
+    { "id": "luis-miguel-20-anos", "title": "Luis Miguel 20 Años", "band": "Luis Miguel", "genre": "Pop Latino/Balada", "price": 44000, "cover": "/covers/luis-miguel-20-anos.jpg", "hasDiscount": false },
+    { "id": "bandido", "title": "Bandido", "band": "Miguel Bosé", "genre": "Pop/New Wave", "price": 28000, "cover": "/covers/bandido.jpg", "hasDiscount": false }
   ],
   "jazz": [
-    { "id": "kindofblue", "title": "Kind of Blue", "genre": "Cool Jazz", "price": 33000, "cover": "/covers/KindofBlue.jpg", "hasDiscount": true },
-    { "id": "timeout", "title": "Time Out", "genre": "Hard Bop", "price": 31000, "cover": "/covers/timeout.jpg", "hasDiscount": false },
-    { "id": "bluetrain", "title": "Blue Train", "genre": "Be-bop", "price": 29000, "cover": "/covers/bluetrain.jpg", "hasDiscount": true }
+    { "id": "kindofblue", "title": "Kind of Blue", "band": "Miles Davis", "genre": "Cool Jazz", "price": 33000, "cover": "/covers/KindofBlue.jpg", "hasDiscount": true },
+    { "id": "timeout", "title": "Time Out", "band": "Dave Brubeck Quartet", "genre": "Hard Bop", "price": 31000, "cover": "/covers/timeout.jpg", "hasDiscount": false },
+    { "id": "bluetrain", "title": "Blue Train", "band": "John Coltrane", "genre": "Be-bop", "price": 29000, "cover": "/covers/bluetrain.jpg", "hasDiscount": true }
   ],
   "rock": [
-    { "id": "tdsotm", "title": "Dark Side of the Moon", "genre": "Progressive Rock/Art Rock", "price": 42000, "cover": "/covers/tdsotm.png", "hasDiscount": true },
-    { "id": "disintegration", "title": "Disintegration", "genre": "Gothic Rock/Alternative Rock", "price": 36000, "cover": "/covers/Disintegration.jpg", "hasDiscount": false },
-    { "id": "intheflatfield", "title": "In the Flat Field", "genre": "Post-Punk/Dark Glam", "price": 39000, "cover": "/covers/flatfield.jpg", "hasDiscount": true },
-    { "id": "corazones", "title": "Corazones", "genre": "Rock en Español", "price": 39000, "cover": "/covers/corazones.jpg", "hasDiscount": false },
-    { "id": "signos", "title": "Signos", "genre": "Rock en Español", "price": 41000, "cover": "/covers/signos.jpg", "hasDiscount": false },
-    { "id": "virus", "title": "Virus", "genre": "New Wave/Rock Alternativo", "price": 36000, "cover": "/covers/virus.jpg", "hasDiscount": false },
-    { "id": "black-celebration", "title": "Black Celebration", "genre": "Synth-Pop/Dark Wave", "price": 40000, "cover": "/covers/black-celebration.jpg", "hasDiscount": false },
-    { "id": "power-corruption-lies", "title": "Power, Corruption & Lies", "genre": "Synth-Pop/New Wave", "price": 42000, "cover": "/covers/power-corruption-lies.jpg", "hasDiscount": false },
-    { "id": "unknown-pleasures", "title": "Unknown Pleasures", "genre": "Post-Punk/Gothic Rock", "price": 44000, "cover": "/covers/unknown-pleasures.jpg", "hasDiscount": false },
-     { "id": "la-culpa", "title": "La Culpa", "genre": "Alternative Rock", "price": 29000, "cover": "/covers/la-culpa.jpg", "hasDiscount": false }
+    { "id": "tdsotm", "title": "Dark Side of the Moon", "band": "Pink Floyd", "genre": "Progressive Rock/Art Rock", "price": 42000, "cover": "/covers/tdsotm.png", "hasDiscount": true },
+    { "id": "disintegration", "title": "Disintegration", "band": "The Cure", "genre": "Gothic Rock/Alternative Rock", "price": 36000, "cover": "/covers/Disintegration.jpg", "hasDiscount": false },
+    { "id": "intheflatfield", "title": "In the Flat Field", "band": "Bauhaus", "genre": "Post-Punk/Dark Glam", "price": 39000, "cover": "/covers/flatfield.jpg", "hasDiscount": true },
+    { "id": "corazones", "title": "Corazones", "band": "Los Prisioneros", "genre": "Rock en Español", "price": 39000, "cover": "/covers/corazones.jpg", "hasDiscount": false },
+    { "id": "signos", "title": "Signos", "band": "Soda Stereo", "genre": "Rock en Español", "price": 41000, "cover": "/covers/signos.jpg", "hasDiscount": false },
+    { "id": "virus", "title": "Virus", "band": "Virus", "genre": "New Wave/Rock Alternativo", "price": 36000, "cover": "/covers/virus.jpg", "hasDiscount": false },
+    { "id": "black-celebration", "title": "Black Celebration", "band": "Depeche Mode", "genre": "Synth-Pop/Dark Wave", "price": 40000, "cover": "/covers/black-celebration.jpg", "hasDiscount": false },
+    { "id": "power-corruption-lies", "title": "Power, Corruption & Lies", "band": "New Order", "genre": "Synth-Pop/New Wave", "price": 42000, "cover": "/covers/power-corruption-lies.jpg", "hasDiscount": false },
+    { "id": "unknown-pleasures", "title": "Unknown Pleasures", "band": "Joy Division", "genre": "Post-Punk/Gothic Rock", "price": 44000, "cover": "/covers/unknown-pleasures.jpg", "hasDiscount": false },
+    { "id": "la-culpa", "title": "La Culpa", "band": "Los Bunkers", "genre": "Alternative Rock", "price": 29000, "cover": "/covers/la-culpa.jpg", "hasDiscount": false }
   ],
   "punk": [
-    { "id": "antitodo", "title": "Anti Todo", "genre": "Punk Rock", "price": 50000, "cover": "/covers/antitodo.jpg", "hasDiscount": true },
-    { "id": "fiesta", "title": "Fiesta", "genre": "Punk Rock/Hardcore Punk", "price": 47000, "cover": "/covers/fiesta.jpg", "hasDiscount": false },
-    { "id": "famousmonsters", "title": "Famous Monsters", "genre": "Horror Punk/Heavy Metal", "price": 44000, "cover": "/covers/monters.png", "hasDiscount": true },
-    { "id": "never-mind-the-bollocks", "title": "Never Mind the Bollocks, Here's the Sex Pistols", "genre": "Punk Rock", "price": 46000, "cover": "/covers/never-mind-the-bollocks.jpg", "hasDiscount": true }
+    { "id": "antitodo", "title": "Anti Todo", "band": "Eskorbuto", "genre": "Punk Rock", "price": 50000, "cover": "/covers/antitodo.jpg", "hasDiscount": true },
+    { "id": "fiesta", "title": "Fiesta", "band": "Attaque 77", "genre": "Punk Rock/Hardcore Punk", "price": 47000, "cover": "/covers/fiesta.jpg", "hasDiscount": false },
+    { "id": "famousmonsters", "title": "Famous Monsters", "band": "Misfits", "genre": "Horror Punk/Heavy Metal", "price": 44000, "cover": "/covers/monters.png", "hasDiscount": true },
+    { "id": "never-mind-the-bollocks", "title": "Never Mind the Bollocks", "band": "Sex Pistols", "genre": "Punk Rock", "price": 46000, "cover": "/covers/never-mind-the-bollocks.jpg", "hasDiscount": true }
   ],
   "rap": [
-    { "id": "illmatic", "title": "Illmatic", "genre": "East Coast Hip Hop", "price": 40000, "cover": "/covers/illmatic.jpg", "hasDiscount": true },
-    { "id": "the-miseducation-of-lauryn-hill", "title": "The Miseducation of Lauryn Hill", "genre": "Neo Soul/Hip Hop", "price": 42000, "cover": "/covers/the-miseducation-of-lauryn-hill.jpg", "hasDiscount": false },
-    { "id": "the-chronic", "title": "The Chronic", "genre": "West Coast Hip Hop/G-Funk", "price": 45000, "cover": "/covers/the-chronic.jpg", "hasDiscount": true },
-    { "id": "ser-humano", "title": "Ser Humano", "genre": "Hip-Hop/Rap en Español", "price": 37000, "cover": "/covers/ser-humano.jpg", "hasDiscount": false }
-
+    { "id": "illmatic", "title": "Illmatic", "band": "Nas", "genre": "East Coast Hip Hop", "price": 40000, "cover": "/covers/illmatic.jpg", "hasDiscount": true },
+    { "id": "to-pimp-a-butterfly", "title": "To Pimp a Butterfly", "band": "Kendrick Lamar", "genre": "Hip-Hop/Jazz Rap", "price": 48000, "cover": "/covers/to-pimp-a-butterfly.jpg", "hasDiscount": false },
+    { "id": "the-chronic", "title": "The Chronic", "band": "Dr. Dre", "genre": "West Coast Hip Hop/G-Funk", "price": 45000, "cover": "/covers/the-chronic.jpg", "hasDiscount": true },
+    { "id": "ser-humano", "title": "Ser Humano", "band": "Tiro de Gracia", "genre": "Hip-Hop/Rap en Español", "price": 37000, "cover": "/covers/ser-humano.jpg", "hasDiscount": false }
   ],
-   "metal": [
-    { "id": "hypnotize", "title": "Hypnotize", "genre": "Alternative Metal", "price": 38000, "cover": "/covers/hypnotize.jpg", "hasDiscount": false },
-    { "id": "korn", "title": "Korn", "genre": "Nu-Metal/Alternative Metal", "price": 43000, "cover": "/covers/korn.jpg", "hasDiscount": true },
-    { "id": "metallica", "title": "Metallica", "genre": "Heavy Metal/Thrash Metal", "price": 46000, "cover": "/covers/metallica.jpg", "hasDiscount": false },
-    { "id": "hybrid-theory", "title": "Hybrid Theory", "genre": "Nu-Metal/Alternative Rock", "price": 45000, "cover": "/covers/hybrid-theory.jpg", "hasDiscount": false }
+  "metal": [
+    { "id": "hypnotize", "title": "Hypnotize", "band": "System of a Down", "genre": "Alternative Metal", "price": 38000, "cover": "/covers/hypnotize.jpg", "hasDiscount": false },
+    { "id": "korn", "title": "Korn", "band": "Korn", "genre": "Nu-Metal/Alternative Metal", "price": 43000, "cover": "/covers/korn.jpg", "hasDiscount": true },
+    { "id": "metallica", "title": "Metallica", "band": "Metallica", "genre": "Heavy Metal/Thrash Metal", "price": 46000, "cover": "/covers/metallica.jpg", "hasDiscount": false },
+    { "id": "hybrid-theory", "title": "Hybrid Theory", "band": "Linkin Park", "genre": "Nu-Metal/Alternative Rock", "price": 45000, "cover": "/covers/hybrid-theory.jpg", "hasDiscount": false }
   ]
 }

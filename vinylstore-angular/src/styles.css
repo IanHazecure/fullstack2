@@ -1,3 +1,10 @@
+html,
+body,
+app-root {
+  min-height: 100%;
+  background: #ffffff;
+}
+
 * {
   box-sizing: border-box;
   margin: 0;
@@ -9,6 +16,7 @@ body::before {
   position: fixed;
   inset: 0;
   /* background-image: url("/backgrounds/background.png");  */
+  background-color: #000;
   background-size: cover;
   background-position: center center;
   background-repeat: no-repeat;
@@ -27,12 +35,6 @@ header {
 }
 
 
-main {
-  width: min(1100px, 92%);
-  margin: 30px auto;
-  animation: slideIn 0.6s ease-out;
-  
-}
 
 
 .felynos-logo {

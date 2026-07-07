@@ -30,7 +30,7 @@
       <div class="vinilo-content">
         <span class="vinilo-category">{{ product.category }}</span>
         <h3>{{ product.title }}</h3>
-        <!-- <p>{{ product.genre }}</p> -->
+        <p>{{ product.band }}</p> 
         <p class="precio">{{ formatPrice(product.price) }}</p>
         <button class="btn-agregar" (click)="addToCart(product)">
           + Agregar al carrito
