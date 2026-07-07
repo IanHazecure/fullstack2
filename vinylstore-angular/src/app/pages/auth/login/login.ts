@@ -4,6 +4,7 @@ import { Router, RouterLink } from '@angular/router';
 import { NgIf } from '@angular/common';
 import { Header } from '../../../components/header/header';
 import { AuthService } from '../../../services/auth';
+import { CartService } from '../../../services/cart';
 
 @Component({
   selector: 'app-login',
@@ -15,6 +16,7 @@ export class Login {
   private auth = inject(AuthService);
   private router = inject(Router);
   private fb = inject(FormBuilder);
+  private cartService = inject(CartService); 
 
   alertMessage = '';
   alertType = '';
@@ -51,6 +53,7 @@ export class Login {
       return;
     }
 
+    this.cartService.refreshCart();
     this.router.navigate(['/']);
   }
 }
