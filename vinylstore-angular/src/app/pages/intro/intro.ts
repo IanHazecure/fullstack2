@@ -12,10 +12,15 @@ import { RouterLink } from '@angular/router';
 export class Intro implements OnInit, OnDestroy {
   slides = [
     '/covers/pornography.jpg',
-    '/covers/KindofBlue.jpg',
+    '/covers/luis-miguel-20-anos.jpg',
     '/covers/flatfield.jpg',
     '/covers/Misfits.jpg',
     '/covers/kissme.jpg',
+    '/covers/korn.jpg',
+    '/covers/metallica.jpg',
+    '/covers/ser-humano.jpg',
+    '/covers/thriller.png',
+    '/covers/antitodo.jpg',
   ];
 
   currentSlide = signal(0);

@@ -59,6 +59,7 @@ main {
   background: #e63946;
   color: #fff;
   border: none;
+  text-decoration: none;
   font-size: 0.9rem;
   font-weight: 600;
   cursor: pointer;
@@ -129,8 +130,9 @@ main {
 }
 
 .hero-text p {
-  font-family: "DM Mono", monospace;
-  font-size: 1.1rem;
+  font-family: "Space Mono", monospace;
+  font-weight: 500;
+  font-style: normal;
   color: black;
   max-width: 100%;
   line-height: 1.6;

@@ -97,10 +97,31 @@
 
 .form-actions button:hover,
 .form-actions a:hover {
-	background: #111;
+	background: #ffffff;
+	color: #000;
 }
 
 .form-actions button:disabled {
 	opacity: 0.55;
 	cursor: not-allowed;
+}
+
+.login-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: min(100%, 460px);
+  gap: 24px;
+}
+
+.login-logo {
+  width: 100px;
+  height: 100px;
+  object-fit: contain;
+}
+
+.field-error {
+  font-size: 0.8rem;
+  color: #c9c9c9;
+  min-height: 1.2rem;
 }

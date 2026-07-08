@@ -8,7 +8,7 @@ import {
   ValidationErrors,
 } from '@angular/forms';
 import { Router } from '@angular/router';
-import { Header } from '../../../components/header/header';
+import { RouterLink } from '@angular/router';
 import { NgIf } from '@angular/common';
 import { AuthService } from '../../../services/auth';
 
@@ -20,7 +20,7 @@ function passwordsMatchValidator(group: AbstractControl): ValidationErrors | nul
 
 @Component({
   selector: 'app-register',
-  imports: [Header, ReactiveFormsModule, NgIf],
+  imports: [ReactiveFormsModule, NgIf,RouterLink],
   templateUrl: './register.html',
   styleUrl: './register.css',
 })
