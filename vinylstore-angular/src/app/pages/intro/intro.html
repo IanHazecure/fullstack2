@@ -29,5 +29,24 @@
         <p>Nuestra seleccion musical tiene grandes sorpresas para todos los que visitan el local. Te mostramos los regresos mas esperados de las bandas que ya conoces y los nuevos nombres que marcan el ritmo hoy en nuestra tienda de vinilos.</p>
       </div>
     </div>
+    @if (top3().length > 0) {
+  <section class="top3-section">
+    <h2 class="top3-title">Los más vendidos</h2>
+    <div class="top3-grid">
+      @for (vinyl of top3(); track vinyl.id) {
+        <article class="top3-card">
+          <div class="top3-rank">#{{ $index + 1 }}</div>
+          <img [src]="vinyl.cover" [alt]="vinyl.title" />
+          <div class="top3-info">
+            <h3>{{ vinyl.title }}</h3>
+            <p>{{ vinyl.genre }}</p>
+            <p class="top3-price">{{ formatPrice(vinyl.price) }}</p>
+            <p class="top3-sold">{{ vinyl.unitsSold }} vendidos</p>
+          </div>
+        </article>
+      }
+    </div>
+  </section>
+}
   </section>
 </main>
