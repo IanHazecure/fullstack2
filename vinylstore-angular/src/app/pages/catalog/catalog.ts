@@ -11,6 +11,9 @@ import { resolveCoverUrl } from '../../utils/cover-url'; //api musicbraiinza
   templateUrl: './catalog.html',
   styleUrl: './catalog.css',
 })
+///buscador
+
+
 export class Catalog implements OnInit {
   private cartService = inject(CartService);
   private productsService = inject(ProductsJsonServerService);
@@ -63,4 +66,15 @@ export class Catalog implements OnInit {
   if (!percent) return price;
   return Math.round(price - (price * percent / 100));
 }
+searchQuery = signal('');
+
+get filtered() {///buscador
+  const active = this.filters();
+  const query = this.searchQuery().toLowerCase().trim();
+
+  if (active.length === 0 && !query) return this.allProducts();
+  });
+}
+
+
 }
