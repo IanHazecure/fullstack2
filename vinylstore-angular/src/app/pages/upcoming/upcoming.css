@@ -1,8 +1,10 @@
 .upcoming-title {
+  font-family: "Roboto Mono", monospace;
   text-align: center;
   margin: 40px 0 24px;
   font-size: 2rem;
 }
+
 
 .upcoming-grid {
   display: grid;

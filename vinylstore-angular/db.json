@@ -34,15 +34,15 @@
       "cover": "https://ianhazecure.github.io/vinyl-api/covers/elephant-roughtrade50.jpg"
     },
     {
-      "title": "Three Imaginary Boys",
-      "artist": "The Cure",
-      "subtitle": "",
-      "genre": "Rock",
-      "price": 60000,
-      "releaseDate": "1979-08-05",
+      "title": "A Flock of Seagulls",
+      "artist": "A Flock of Seagulls",
+      "subtitle": "Australian Ver",
+      "genre": "New Wave",
+      "price": 80000,
+      "releaseDate": "1982-01-01",
       "status": "Pre-order",
-      "cover": "a661d5b0-7f4d-46e0-966b-55dc1eee254b",
-      "id": "nzMkoTp"
+      "cover": "2b9b81a2-3ca3-44e6-907d-57ca752ba760",
+      "id": "xjNQnHv"
     }
   ],
   "products": [
