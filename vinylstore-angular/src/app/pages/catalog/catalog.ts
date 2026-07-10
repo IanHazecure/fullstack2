@@ -60,4 +60,10 @@ export class Catalog implements OnInit {
   formatPrice(price: number) {
     return price.toLocaleString('es-CL', { style: 'currency', currency: 'CLP' });
   }
+
+  ////descuento % real esta vez
+  discountedPrice(price: number, percent: number | undefined): number {
+  if (!percent) return price;
+  return Math.round(price - (price * percent / 100));
+}
 }
