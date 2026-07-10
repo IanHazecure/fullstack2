@@ -67,10 +67,67 @@
           }
 
           @if (activeTab() === 'products') {
-            <div class="total-revenue">
-              <span>Ingresos totales:</span>
-              <strong>{{ formatPrice(totalRevenue()) }}</strong>
+            <div class="d-flex justify-content-between align-items-center mb-3">
+              <div class="total-revenue">
+                <span>Ingresos totales:</span>
+                <strong>{{ formatPrice(totalRevenue()) }}</strong>
+              </div>
+              <button class="btn btn-outline-light btn-sm" (click)="showForm.set(true)">+ Nuevo producto</button>
             </div>
+
+            @if (showForm()) {
+              <div class="product-form mb-4">
+                <h5>{{ editingProduct() ? 'Editar producto' : 'Nuevo producto' }}</h5>
+                <div class="product-form-grid">
+                  <div class="form-group">
+                    <label>ID</label>
+                    <input type="text" [(ngModel)]="form.id" name="id" [disabled]="!!editingProduct()" />
+                  </div>
+                  <div class="form-group">
+                    <label>Título</label>
+                    <input type="text" [(ngModel)]="form.title" name="title" />
+                  </div>
+                  <div class="form-group">
+                    <label>Género</label>
+                    <input type="text" [(ngModel)]="form.genre" name="genre" />
+                  </div>
+                  <div class="form-group">
+                    <label>Categoría</label>
+                    <select [(ngModel)]="form.category" name="category">
+                      @for (cat of categories; track cat) {
+                        <option [value]="cat">{{ cat }}</option>
+                      }
+                    </select>
+                  </div>
+                  <div class="form-group">
+                    <label>Precio</label>
+                    <input type="number" [(ngModel)]="form.price" name="price" />
+                  </div>
+                  <div class="form-group">
+                    <label>Cover URL</label>
+                    <input type="text" [(ngModel)]="form.cover" name="cover" />
+                  </div>
+                  <div class="form-group">
+                    <label>¿Tiene descuento?</label>
+                    <select [(ngModel)]="form.hasDiscount" name="hasDiscount">
+                      <option [ngValue]="false">No</option>
+                      <option [ngValue]="true">Sí</option>
+                    </select>
+                  </div>
+                  @if (form.hasDiscount) {
+                    <div class="form-group">
+                      <label>% Descuento</label>
+                      <input type="number" [(ngModel)]="form.discountPercent" name="discountPercent" min="1" max="99" />
+                    </div>
+                  }
+                </div>
+                <div class="product-form-actions">
+                  <button class="btn btn-outline-light btn-sm" (click)="saveProduct()">Guardar</button>
+                  <button class="btn btn-outline-secondary btn-sm" (click)="resetForm()">Cancelar</button>
+                </div>
+              </div>
+            }
+
             <div class="table-responsive">
               <table class="table table-dark table-striped align-middle mb-0">
                 <thead>
@@ -83,6 +140,7 @@
                     <th>Descuento</th>
                     <th>Unidades vendidas</th>
                     <th>Total vendido</th>
+                    <th>Acciones</th>
                   </tr>
                 </thead>
                 <tbody>
@@ -92,16 +150,29 @@
                       <td>{{ product.title }}</td>
                       <td>{{ product.genre }}</td>
                       <td>{{ product.category }}</td>
-                      <td>{{ formatPrice(product.price) }}</td>
+                      <td>
+                        @if (product.hasDiscount && product.discountPercent) {
+                          <span style="text-decoration:line-through; color:#999; font-size:0.8rem;">{{ formatPrice(product.price) }}</span>
+                          <br/>{{ formatPrice(discountedPrice(product.price, product.discountPercent)) }}
+                        } @else {
+                          {{ formatPrice(product.price) }}
+                        }
+                      </td>
                       <td>
                         @if (product.hasDiscount) {
-                          <span class="badge bg-success">Sí</span>
+                          <span class="badge bg-success">{{ product.discountPercent }}% OFF</span>
                         } @else {
                           <span class="badge bg-secondary">No</span>
                         }
                       </td>
                       <td>{{ product.unitsSold }}</td>
-                      <td>{{ formatPrice(product.totalSold) }}</td>
+                      <td>{{ formatPrice(product.totalSold ?? 0) }}</td>
+                      <td>
+                        <div class="d-flex gap-2">
+                          <button class="btn btn-sm btn-outline-light" (click)="editProduct(product)">Editar</button>
+                          <button class="btn btn-sm btn-outline-danger" (click)="deleteProduct(product.id)">Eliminar</button>
+                        </div>
+                      </td>
                     </tr>
                   }
                 </tbody>

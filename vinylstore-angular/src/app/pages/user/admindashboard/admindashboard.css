@@ -29,3 +29,73 @@
   padding: 40px 0;
   text-align: center;
 }
+
+.product-form {
+  background: rgba(255,255,255,0.05);
+  border: 1px solid rgba(255,255,255,0.1);
+  border-radius: 8px;
+  padding: 20px;
+}
+
+.product-form h5 {
+  margin-bottom: 16px;
+}
+
+.product-form-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 12px;
+  margin-bottom: 16px;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.form-group label {
+  font-size: 0.8rem;
+  color: rgba(255,255,255,0.6);
+}
+
+.form-group input,
+.form-group select {
+  padding: 8px 10px;
+  border: 1px solid rgba(255,255,255,0.2);
+  border-radius: 6px;
+  background: transparent;
+  color: #fff;
+  outline: none;
+  font-size: 0.85rem;
+}
+
+.form-group select option {
+  background: #1a1a2e;
+}
+
+.product-form-actions {
+  display: flex;
+  gap: 8px;
+}
+
+.total-revenue {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-size: 1rem;
+}
+
+.total-revenue strong {
+  font-size: 1.2rem;
+  color: #2dc653;
+}
+
+.preorders-tab {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+  padding: 40px 0;
+  text-align: center;
+}
