@@ -1,7 +1,7 @@
 import { Component, inject, OnInit, signal } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { HttpClient } from '@angular/common/http';
 import { Header } from '../../components/header/header';
+import { PreordersJsonServerService, Preorder } from '../../services/preorders-json-server';
 
 @Component({
   selector: 'app-upcoming',
@@ -11,13 +11,13 @@ import { Header } from '../../components/header/header';
   styleUrl: './upcoming.css',
 })
 export class Upcoming implements OnInit {
-  private http = inject(HttpClient);
-  releases = signal<any[]>([]);
+  private service = inject(PreordersJsonServerService);
+  releases = signal<Preorder[]>([]);
 
-ngOnInit() {
-  this.http.get<any>('https://ianhazecure.github.io/vinyl-api/upcoming.json')
-    .subscribe(data => {
-      this.releases.set(data.upcoming);
+  ngOnInit() {
+    this.service.getAll().subscribe({
+      next: data => this.releases.set(data),
+      error: () => this.releases.set([])
     });
-}
+  }
 }

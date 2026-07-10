@@ -2,20 +2,13 @@ import { Component, inject, OnInit, signal } from '@angular/core';
 import { Router, RouterLink } from '@angular/router';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
-import { HttpClient } from '@angular/common/http';
 import { Header } from '../../../components/header/header';
 import { AuthService, User } from '../../../services/auth';
 import { PurchasesService } from '../../../services/purchases';
+import { Product, ProductsJsonServerService } from '../../../services/products-json-server.service';
 
-export interface Vinyl {
+export interface Vinyl extends Product {
   id: string;
-  title: string;
-  genre: string;
-  category: string;
-  price: number;
-  cover: string;
-  hasDiscount: boolean;
-  discountPercent?: number;
   unitsSold?: number;
   totalSold?: number;
 }
@@ -29,8 +22,8 @@ export interface Vinyl {
 export class AdminDashboard implements OnInit {
   private auth = inject(AuthService);
   private router = inject(Router);
-  private http = inject(HttpClient);
   private purchasesService = inject(PurchasesService);
+  private productsService = inject(ProductsJsonServerService);
 
   currentUser = signal(this.auth.getCurrentUser());
   users = signal<User[]>([]);
@@ -53,21 +46,16 @@ export class AdminDashboard implements OnInit {
   }
 
   loadProducts() {
-    this.http.get<any>('/vinyls.json').subscribe(data => {
-      const purchases = this.purchasesService.getAll();
-      const all = [
-        ...data.pop.map((v: any) => ({ ...v, category: 'Pop' })),
-        ...data.rock.map((v: any) => ({ ...v, category: 'Rock' })),
-        ...data.jazz.map((v: any) => ({ ...v, category: 'Jazz' })),
-        ...data.punk.map((v: any) => ({ ...v, category: 'Punk' })),
-        ...(data.rap || []).map((v: any) => ({ ...v, category: 'Rap' })),
-        ...(data.latina || []).map((v: any) => ({ ...v, category: 'Latina' })),
-      ].map(v => ({
-        ...v,
-        unitsSold: purchases[v.id]?.quantity || 0,
-        totalSold: purchases[v.id]?.totalSpent || 0
-      }));
-      this.products.set(all);
+    this.productsService.getAll().subscribe({
+      next: data => {
+        const purchases = this.purchasesService.getAll();
+        this.products.set(data.map(v => ({
+          ...v,
+          unitsSold: purchases[v.id ?? '']?.quantity || 0,
+          totalSold: purchases[v.id ?? '']?.totalSpent || 0
+        })));
+      },
+      error: () => this.showAlert('Couldnt connect to json-server.', 'danger')
     });
   }
 
@@ -82,21 +70,29 @@ export class AdminDashboard implements OnInit {
   }
 
   saveProduct() {
-    const current = this.products();
-    if (this.editingProduct()) {
-      const updated = current.map(p => p.id === this.form.id ? { ...this.form } : p);
-      this.products.set(updated);
-    } else {
-      this.products.set([...current, { ...this.form }]);
-    }
-    this.resetForm();
-    this.showAlert('Producto guardado.', 'success');
+    const request = this.editingProduct()
+      ? this.productsService.update(this.form.id, this.form)
+      : this.productsService.create(this.form);
+
+    request.subscribe({
+      next: () => {
+        this.loadProducts();
+        this.resetForm();
+        this.showAlert('Producto guardado.', 'success');
+      },
+      error: () => this.showAlert('No se pudo guardar el producto.', 'danger')
+    });
   }
 
   deleteProduct(id: string) {
     if (!confirm('¿Eliminar este producto?')) return;
-    this.products.set(this.products().filter(p => p.id !== id));
-    this.showAlert('Producto eliminado.', 'success');
+    this.productsService.delete(id).subscribe({
+      next: () => {
+        this.loadProducts();
+        this.showAlert('Producto eliminado.', 'success');
+      },
+      error: () => this.showAlert('No se pudo eliminar el producto.', 'danger')
+    });
   }
 
   resetForm() {

@@ -1,8 +1,8 @@
 import { Component, inject, OnInit, signal } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
 import { Header } from '../../components/header/header';
 import { CartService } from '../../services/cart';
 import { CommonModule } from '@angular/common';
+import { Product, ProductsJsonServerService } from '../../services/products-json-server.service';
 
 @Component({
   selector: 'app-catalog',
@@ -12,10 +12,10 @@ import { CommonModule } from '@angular/common';
   styleUrl: './catalog.css',
 })
 export class Catalog implements OnInit {
-  private http = inject(HttpClient);
   private cartService = inject(CartService);
+  private productsService = inject(ProductsJsonServerService);
 
-  allProducts = signal<any[]>([]);
+  allProducts = signal<Product[]>([]);
   filters = signal<string[]>([]);
 
   genres = ['Rock', 'Pop', 'Jazz', 'Punk', 'Rap', 'Metal'];
@@ -27,16 +27,9 @@ export class Catalog implements OnInit {
   }
 
   ngOnInit() {
-    this.http.get<any>('/vinyls.json').subscribe(data => {
-      const all = [
-  ...data.rock.map((v: any) => ({ ...v, category: 'Rock' })),
-  ...data.pop.map((v: any) => ({ ...v, category: 'Pop' })),
-  ...data.jazz.map((v: any) => ({ ...v, category: 'Jazz' })),
-  ...data.punk.map((v: any) => ({ ...v, category: 'Punk' })),
-  ...data.rap.map((v: any) => ({ ...v, category: 'Rap' })),
-  ...data.metal.map((v: any) => ({ ...v, category: 'Metal' }))
-];
-      this.allProducts.set(all);
+    this.productsService.getAll().subscribe({
+      next: data => this.allProducts.set(data),
+      error: () => this.allProducts.set([])
     });
   }
 
