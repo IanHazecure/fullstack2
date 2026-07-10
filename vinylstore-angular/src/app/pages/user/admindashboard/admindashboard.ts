@@ -6,6 +6,7 @@ import { Header } from '../../../components/header/header';
 import { AuthService, User } from '../../../services/auth';
 import { PurchasesService } from '../../../services/purchases';
 import { Product, ProductsJsonServerService } from '../../../services/products-json-server.service';
+import { resolveCoverUrl } from '../../../utils/cover-url';
 
 export interface Vinyl extends Product {
   id: string;
@@ -117,6 +118,10 @@ export class AdminDashboard implements OnInit {
   discountedPrice(price: number, percent: number | undefined): number {
     if (!percent) return price;
     return Math.round(price - (price * percent / 100));
+  }
+
+  coverUrl(cover: string | undefined | null): string {
+    return resolveCoverUrl(cover);
   }
 
   showAlert(msg: string, type: string) {

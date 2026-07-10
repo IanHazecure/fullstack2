@@ -32,6 +32,17 @@
       "releaseDate": "2026-09-01",
       "status": "Pre-order",
       "cover": "https://ianhazecure.github.io/vinyl-api/covers/elephant-roughtrade50.jpg"
+    },
+    {
+      "title": "Three Imaginary Boys",
+      "artist": "The Cure",
+      "subtitle": "",
+      "genre": "Rock",
+      "price": 60000,
+      "releaseDate": "1979-08-05",
+      "status": "Pre-order",
+      "cover": "a661d5b0-7f4d-46e0-966b-55dc1eee254b",
+      "id": "nzMkoTp"
     }
   ],
   "products": [

@@ -2,6 +2,7 @@ import { Component, inject, input, output } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { CartService } from '../../services/cart';
 import { PurchasesService } from '../../services/purchases';
+import { resolveCoverUrl } from '../../utils/cover-url';
 
 @Component({
   selector: 'app-cart-sidebar',
@@ -43,5 +44,9 @@ export class CartSidebar {
 
   formatPrice(price: number): string {
     return price.toLocaleString('es-CL', { style: 'currency', currency: 'CLP' });
+  }
+
+  coverUrl(cover: string | undefined | null): string {
+    return resolveCoverUrl(cover);
   }
 }/////

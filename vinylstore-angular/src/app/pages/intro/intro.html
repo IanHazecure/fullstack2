@@ -36,7 +36,7 @@
       @for (vinyl of top3(); track vinyl.id) {
         <article class="top3-card">
           <div class="top3-rank">#{{ $index + 1 }}</div>
-          <img [src]="vinyl.cover" [alt]="vinyl.title" />
+          <img [src]="coverUrl(vinyl.cover)" [alt]="vinyl.title" />
           <div class="top3-info">
             <h3>{{ vinyl.title }}</h3>
             <p>{{ vinyl.genre }}</p>

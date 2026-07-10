@@ -22,7 +22,7 @@
   @for (product of filtered; track product.id) {
     <article class="vinilo">
       <div class="vinilo-cover">
-        <img [src]="product.cover" [alt]="product.title" />
+        <img [src]="coverUrl(product.cover)" [alt]="product.title" />
         @if (product.hasDiscount) {
           <div class="discount-ribbon">DESCUENTO</div>
         }

@@ -146,7 +146,7 @@
                 <tbody>
                   @for (product of products(); track product.id) {
                     <tr>
-                      <td><img [src]="product.cover" [alt]="product.title" style="width:48px; height:48px; object-fit:cover; border-radius:4px;" /></td>
+                      <td><img [src]="coverUrl(product.cover)" [alt]="product.title" style="width:48px; height:48px; object-fit:cover; border-radius:4px;" /></td>
                       <td>{{ product.title }}</td>
                       <td>{{ product.genre }}</td>
                       <td>{{ product.category }}</td>

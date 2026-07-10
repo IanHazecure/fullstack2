@@ -3,7 +3,7 @@ import { Header } from '../../components/header/header';
 import { CartService } from '../../services/cart';
 import { CommonModule } from '@angular/common';
 import { Product, ProductsJsonServerService } from '../../services/products-json-server.service';
-
+import { resolveCoverUrl } from '../../utils/cover-url'; //api musicbraiinza
 @Component({
   selector: 'app-catalog',
   standalone: true,
@@ -48,6 +48,10 @@ export class Catalog implements OnInit {
 
   addToCart(vinyl: any) {
     this.cartService.addToCart(vinyl);
+  }
+
+  coverUrl(cover: string | undefined | null): string {
+    return resolveCoverUrl(cover);
   }
 
   formatPrice(price: number) {

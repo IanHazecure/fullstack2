@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { Header } from '../../components/header/header';
 import { PreordersJsonServerService, Preorder } from '../../services/preorders-json-server';
+import { resolveCoverUrl } from '../../utils/cover-url';
 
 @Component({
   selector: 'app-preorders-json-server',
@@ -82,5 +83,9 @@ export class PreordersJsonServer implements OnInit {
 
   formatPrice(price: number) {
     return price.toLocaleString('es-CL', { style: 'currency', currency: 'CLP' });
+  }
+
+  coverUrl(cover: string | undefined | null): string {
+    return resolveCoverUrl(cover);
   }
 }

@@ -2,6 +2,7 @@ import { Component, inject, OnInit, signal } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { Header } from '../../components/header/header';
 import { PreordersJsonServerService, Preorder } from '../../services/preorders-json-server';
+import { resolveCoverUrl } from '../../utils/cover-url';
 
 @Component({
   selector: 'app-upcoming',
@@ -19,5 +20,9 @@ export class Upcoming implements OnInit {
       next: data => this.releases.set(data),
       error: () => this.releases.set([])
     });
+  }
+
+  coverUrl(cover: string | undefined | null): string {
+    return resolveCoverUrl(cover);
   }
 }

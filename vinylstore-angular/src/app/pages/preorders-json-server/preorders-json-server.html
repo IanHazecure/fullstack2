@@ -44,7 +44,7 @@
     @for (p of preorders(); track p.id) {
       <article class="preorder-card">
         <div class="preorder-cover">
-          <img [src]="p.cover" [alt]="p.title" />
+          <img [src]="coverUrl(p.cover)" [alt]="p.title" />
           <div class="preorder-status-ribbon">{{ p.status }}</div>
         </div>
         <div class="preorder-info">

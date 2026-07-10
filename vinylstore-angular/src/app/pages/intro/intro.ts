@@ -4,6 +4,7 @@ import { RouterLink } from '@angular/router';
 import { HttpClient } from '@angular/common/http';
 import { Header } from '../../components/header/header';
 import { PurchasesService } from '../../services/purchases';
+import { resolveCoverUrl } from '../../utils/cover-url';
 @Component({
   selector: 'app-intro',
   imports: [CommonModule, Header, RouterLink],
@@ -62,5 +63,9 @@ export class Intro implements OnInit, OnDestroy {
 
   formatPrice(price: number) {
     return price.toLocaleString('es-CL', { style: 'currency', currency: 'CLP' });
+  }
+
+  coverUrl(cover: string | undefined | null): string {
+    return resolveCoverUrl(cover);
   }
 }

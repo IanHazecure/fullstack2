@@ -1,13 +1,12 @@
 import { TestBed } from '@angular/core/testing';
+import { PreordersJsonServerService } from './preorders-json-server';
 
-import { PreordersJsonServer } from './preorders-json-server';
-
-describe('PreordersJsonServer', () => {
-  let service: PreordersJsonServer;
+describe('PreordersJsonServerService', () => {
+  let service: PreordersJsonServerService;
 
   beforeEach(() => {
     TestBed.configureTestingModule({});
-    service = TestBed.inject(PreordersJsonServer);
+    service = TestBed.inject(PreordersJsonServerService);
   });
 
   it('should be created', () => {
