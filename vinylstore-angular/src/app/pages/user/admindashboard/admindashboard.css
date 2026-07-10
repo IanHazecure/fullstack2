@@ -6,3 +6,26 @@
   padding: 40px 0;
   text-align: center;
 }
+
+.total-revenue {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 16px;
+  font-size: 1rem;
+}
+
+.total-revenue strong {
+  font-size: 1.2rem;
+  color: #2dc653;
+}
+
+.preorders-tab {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+  padding: 40px 0;
+  text-align: center;
+}

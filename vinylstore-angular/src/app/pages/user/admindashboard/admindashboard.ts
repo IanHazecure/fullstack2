@@ -4,6 +4,7 @@ import { CommonModule } from '@angular/common';
 import { HttpClient } from '@angular/common/http';
 import { Header } from '../../../components/header/header';
 import { AuthService, User } from '../../../services/auth';
+import { PurchasesService } from '../../../services/purchases';
 
 @Component({
   selector: 'app-admindashboard',
@@ -15,6 +16,7 @@ export class AdminDashboard implements OnInit {
   private auth = inject(AuthService);
   private router = inject(Router);
   private http = inject(HttpClient);
+  private purchasesService = inject(PurchasesService);
 
   currentUser = signal(this.auth.getCurrentUser());
   users = signal<User[]>([]);
@@ -22,18 +24,28 @@ export class AdminDashboard implements OnInit {
   alertMessage = signal('');
   alertType = signal('');
   activeTab = signal<'users' | 'products' | 'preorders'>('users');
+  totalRevenue = signal(0);
 
   ngOnInit() {
     if (!this.currentUser()) { this.router.navigate(['/login']); return; }
     if (this.currentUser()?.role !== 'admin') { this.router.navigate(['/']); return; }
     this.users.set(this.auth.getUsers());
+    this.totalRevenue.set(this.purchasesService.getTotalRevenue());
+
     this.http.get<any>('/vinyls.json').subscribe(data => {
+      const purchases = this.purchasesService.getAll();
       const all = [
         ...data.pop.map((v: any) => ({ ...v, category: 'Pop' })),
         ...data.rock.map((v: any) => ({ ...v, category: 'Rock' })),
         ...data.jazz.map((v: any) => ({ ...v, category: 'Jazz' })),
         ...data.punk.map((v: any) => ({ ...v, category: 'Punk' })),
-      ];
+        ...(data.rap || []).map((v: any) => ({ ...v, category: 'Rap' })),
+        ...(data.latina || []).map((v: any) => ({ ...v, category: 'Latina' })),
+      ].map(v => ({
+        ...v,
+        unitsSold: purchases[v.id]?.quantity || 0,
+        totalSold: purchases[v.id]?.totalSpent || 0
+      }));
       this.products.set(all);
     });
   }
