@@ -27,6 +27,8 @@ export class Catalog implements OnInit {
     const active = this.filters();
     if (active.length === 0) return this.allProducts();
     return this.allProducts().filter(p => active.includes(p.category));
+
+
   }
 
   ngOnInit() {
@@ -50,8 +52,11 @@ export class Catalog implements OnInit {
   }
 
   addToCart(vinyl: any) {
-    this.cartService.addToCart(vinyl);
-  }
+  const finalPrice = vinyl.hasDiscount && vinyl.discountPercent //Bug (olvide ponerle %)
+    ? this.discountedPrice(vinyl.price, vinyl.discountPercent) //var discount
+    : vinyl.price;
+  this.cartService.addToCart({ ...vinyl, price: finalPrice });
+}
 
   coverUrl(cover: string | undefined | null): string {
     return resolveCoverUrl(cover);
@@ -68,13 +73,17 @@ export class Catalog implements OnInit {
 }
 searchQuery = signal('');
 
-get filtered() {///buscador
+get filteredProducts() {
   const active = this.filters();
   const query = this.searchQuery().toLowerCase().trim();
 
-  if (active.length === 0 && !query) return this.allProducts();
+  return this.allProducts().filter(p => {
+    const matchesGenre = active.length === 0 || active.includes(p.category);
+    const matchesSearch = !query ||
+      p.title.toLowerCase().includes(query) ||
+      p.band?.toLowerCase().includes(query);
+    return matchesGenre && matchesSearch;
   });
 }
-
 
 }

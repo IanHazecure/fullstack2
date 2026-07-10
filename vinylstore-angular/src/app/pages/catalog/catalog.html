@@ -1,48 +1,53 @@
 <app-header />
+
 <main class="catalog-layout">
 
   <aside class="catalog-sidebar">
     <h3>Generos</h3>
     <div class="filter-search">
-      <input type="text" placeholder="Buscar género..." />
+      <input type="text" placeholder="Buscar por nombre o artista..." [value]="searchQuery()"
+        (input)="searchQuery.set($any($event.target).value)" />
     </div>
     <ul class="filter-list">
       @for (genre of genres; track genre) {
-        <li>
-          <label class="filter-item" [class.active]="isActive(genre)">
-            <input type="checkbox" [checked]="isActive(genre)" (change)="toggleFilter(genre)" />
-            {{ genre }}
-          </label>
-        </li>
+      <li>
+        <label class="filter-item" [class.active]="isActive(genre)">
+          <input type="checkbox" [checked]="isActive(genre)" (change)="toggleFilter(genre)" />
+          {{ genre }}
+        </label>
+      </li>
       }
     </ul>
   </aside>
 
   <section class="catalog-grid">
-  @for (product of filtered; track product.id) {
+    @for (product of filteredProducts; track product.id) {
     <article class="vinilo">
       <div class="vinilo-cover">
         <img [src]="coverUrl(product.cover)" [alt]="product.title" />
+        <!-- musicbrainz -->
         @if (product.hasDiscount) {
-          <div class="discount-ribbon">DESCUENTO</div>
+        <div class="discount-ribbon">DESCUENTO</div>
         }
       </div>
       <div class="vinilo-content">
-  <span class="vinilo-category">{{ product.category }}</span>
-  <h3>{{ product.title }}</h3>
-  <p>{{ product.band }}</p>
-  @if (product.hasDiscount && product.discountPercent) {
-    <p class="precio-original">{{ formatPrice(product.price) }}</p>
-    <p class="precio">{{ formatPrice(discountedPrice(product.price, product.discountPercent)) }}</p>
-    <span class="discount-percent">-{{ product.discountPercent }}%</span>
-  } @else {
-    <p class="precio">{{ formatPrice(product.price) }}</p>
-  }
-  <button class="btn-agregar" (click)="addToCart(product)">
-    + Agregar al carrito
-  </button>
-</div>
+        <span class="vinilo-category">{{ product.category }}</span>
+        <h3>{{ product.title }}</h3>
+        <p>{{ product.band }}</p>
+        @if (product.hasDiscount && product.discountPercent) {
+        <div class="precio-row">
+          <p class="precio-original">{{ formatPrice(product.price) }}</p>
+          <span class="discount-percent">-{{ product.discountPercent }}%</span>
+        </div>
+        <p class="precio">{{ formatPrice(discountedPrice(product.price, product.discountPercent)) }}</p>
+        } @else {
+        <p class="precio">{{ formatPrice(product.price) }}</p>
+        }
+        <button class="btn-agregar" (click)="addToCart(product)">
+          + Agregar
+        </button>
+      </div>
     </article>
-  }
-</section>
+    }
+  </section>
 </main>

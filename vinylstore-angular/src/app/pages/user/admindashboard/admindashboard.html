@@ -88,6 +88,10 @@
                     <input type="text" [(ngModel)]="form.title" name="title" />
                   </div>
                   <div class="form-group">
+                    <label>Banda</label>
+                    <input type="text" [(ngModel)]="form.band" name="band" />
+                  </div>
+                  <div class="form-group">
                     <label>Género</label>
                     <input type="text" [(ngModel)]="form.genre" name="genre" />
                   </div>
@@ -160,7 +164,7 @@
                       </td>
                       <td>
                         @if (product.hasDiscount) {
-                          <span class="badge bg-success">{{ product.discountPercent }}% OFF</span>
+                          <span class="badge bg-success">{{ product.discountPercent }}%</span>
                         } @else {
                           <span class="badge bg-secondary">No</span>
                         }

@@ -96,12 +96,17 @@
 .vinilo-content {
   display: flex;
   flex-direction: column;
-  height: 160px;
 }
 .precio {
   font-weight: 700;
   color: #000000 !important;
   font-size: 0.95rem !important;
+}
+
+.precio-row {
+  display: flex;
+  align-items: center;
+  gap: 6px;
 }
 
 .vinilo {
@@ -126,6 +131,11 @@
   object-fit: cover;
   display: block;
 }
+/* .vinilo:hover {
+  transform: scale(1.05);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.6);
+
+} */
 
 .vinilo-content {
   padding: 12px;
@@ -136,13 +146,13 @@
 }
 
 .btn-agregar {
+  /* font-family: "Space Mono", monospace; */
   margin-top: auto;
   width: 100%;
   padding: 8px;
   background: #000000;
   color: #fff;
   border: none;
-  border-radius: 6px;
   font-size: 0.8rem;
   font-weight: 600;
   cursor: pointer;
@@ -156,6 +166,7 @@
 }
 
 .discount-ribbon {
+  font-family: "Space Mono", monospace;
   position: absolute;
   bottom: 10%;
   background: #e63946;
@@ -167,6 +178,7 @@
   width: 100%;
   text-align: center;
   pointer-events: none;
+  box-shadow: 0 5px 5px rgba(0, 0, 0, 0.3);
 }
 
 

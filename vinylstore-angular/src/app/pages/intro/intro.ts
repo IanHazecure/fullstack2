@@ -41,22 +41,17 @@ export class Intro implements OnInit, OnDestroy {
   }
 
   loadTop3() {
-    const top = this.purchasesService.getTop3();
-    if (top.length === 0) return;
+  const top = this.purchasesService.getTop3(); //lee de db.json 
+  if (top.length === 0) return;
 
-    this.http.get<any>('/vinyls.json').subscribe(data => {
-      const all = [
-        ...data.rock, ...data.pop, ...data.jazz,
-        ...data.punk, ...(data.rap || []), ...(data.latina || [])
-      ];
-      const result = top.map(p => {
-        const vinyl = all.find((v: any) => v.id === p.id);
-        return vinyl ? { ...vinyl, unitsSold: p.quantity } : null;
-      }).filter(Boolean);
-      this.top3.set(result);
-    });
-  }
-
+  this.http.get<any[]>('http://localhost:3000/products').subscribe(data => {
+    const result = top.map(p => {
+      const vinyl = data.find((v: any) => v.id === p.id);
+      return vinyl ? { ...vinyl, unitsSold: p.quantity } : null;
+    }).filter(Boolean);
+    this.top3.set(result);
+  });
+}
   ngOnDestroy() {
     clearInterval(this.interval);
   }

@@ -39,7 +39,7 @@
       "subtitle": "Australian Ver",
       "genre": "New Wave",
       "price": 80000,
-      "releaseDate": "1982-01-01",
+      "releaseDate": "1982-09-01",
       "status": "Pre-order",
       "cover": "2b9b81a2-3ca3-44e6-907d-57ca752ba760",
       "id": "xjNQnHv"
@@ -56,8 +56,8 @@
       "cover": "/covers/thriller.png",
       "hasDiscount": true,
       "discountPercent": 20,
-      "unitsSold": 3,
-      "totalSold": 135000
+      "unitsSold": 5,
+      "totalSold": 225000
     },
     {
       "id": "dare",
@@ -77,8 +77,10 @@
       "category": "Pop",
       "price": 34000,
       "cover": "/covers/kissme.jpg",
-      "hasDiscount": true,
-      "discountPercent": 10
+      "hasDiscount": false,
+      "discountPercent": 10,
+      "unitsSold": 1,
+      "totalSold": 34000
     },
     {
       "id": "soy-como-quiero-ser",
@@ -93,12 +95,14 @@
     {
       "id": "reencuentro",
       "title": "Reencuentro",
-      "band": "Myriam Hernández",
+      "band": "José José",
       "genre": "Balada/Pop",
       "category": "Pop",
       "price": 35000,
       "cover": "/covers/reencuentro.jpg",
-      "hasDiscount": false
+      "hasDiscount": false,
+      "unitsSold": 0,
+      "totalSold": 0
     },
     {
       "id": "amor-libre",
@@ -148,8 +152,10 @@
       "category": "Jazz",
       "price": 33000,
       "cover": "/covers/KindofBlue.jpg",
-      "hasDiscount": true,
-      "discountPercent": 20
+      "hasDiscount": false,
+      "discountPercent": 20,
+      "unitsSold": 0,
+      "totalSold": 0
     },
     {
       "id": "timeout",
@@ -272,7 +278,10 @@
       "category": "Rock",
       "price": 29000,
       "cover": "/covers/la-culpa.jpg",
-      "hasDiscount": false
+      "hasDiscount": true,
+      "unitsSold": 0,
+      "totalSold": 0,
+      "discountPercent": 30
     },
     {
       "id": "antitodo",
@@ -344,7 +353,10 @@
       "category": "Rap",
       "price": 45000,
       "cover": "/covers/the-chronic.jpg",
-      "hasDiscount": false
+      "hasDiscount": true,
+      "unitsSold": 0,
+      "totalSold": 0,
+      "discountPercent": 25
     },
     {
       "id": "ser-humano",
@@ -395,6 +407,113 @@
       "price": 45000,
       "cover": "/covers/hybrid-theory.jpg",
       "hasDiscount": false
+    },
+    {
+      "id": "3IB",
+      "title": "Three Imaginary Boys",
+      "genre": "New/Wave",
+      "category": "Rock",
+      "price": 70000,
+      "cover": "a661d5b0-7f4d-46e0-966b-55dc1eee254b",
+      "hasDiscount": true,
+      "discountPercent": 20,
+      "unitsSold": 3,
+      "totalSold": 168000,
+      "band": "The Cure"
+    },
+    {
+      "id": "seventeen-seconds",
+      "title": "Seventeen Seconds",
+      "band": "The Cure",
+      "genre": "Goth Rock",
+      "category": "Rock",
+      "price": 67000,
+      "cover": "5e52cc8b-15b3-3080-a640-30fcec187de7",
+      "hasDiscount": false,
+      "discountPercent": 0,
+      "unitsSold": 0,
+      "totalSold": 0
+    },
+    {
+      "id": "head-on-the-door",
+      "title": "The Head on the Door",
+      "band": "The Cure",
+      "genre": "Goth Rock",
+      "category": "Rock",
+      "price": 67000,
+      "cover": "ba0d56eb-11b7-31aa-b48d-26307fd2211d",
+      "hasDiscount": false,
+      "discountPercent": 0
+    },
+    {
+      "id": "thecure-paris",
+      "title": "Paris",
+      "band": "The Cure",
+      "genre": "Alternative Rock",
+      "category": "Rock",
+      "price": 75000,
+      "cover": "d7fcf784-840e-4588-8f1f-4d857d867956",
+      "hasDiscount": false,
+      "discountPercent": 0,
+      "unitsSold": 0,
+      "totalSold": 0
+    },
+    {
+      "id": "dynasty",
+      "title": "Dynasty",
+      "band": "KISS",
+      "genre": "Hard Rock",
+      "category": "Rock",
+      "price": 83000,
+      "cover": "e1a012cb-8deb-4682-a1f3-3e5999a781be",
+      "hasDiscount": true,
+      "discountPercent": 27
+    },
+    {
+      "id": "marshall-mathers",
+      "title": "The Marshall Mathers LP ",
+      "band": "Eminem",
+      "genre": "Hip Hop",
+      "category": "Rap",
+      "price": 47000,
+      "cover": "8d2661e7-fd4a-3ea6-b4d1-0bc720115744",
+      "hasDiscount": false,
+      "discountPercent": 0
+    },
+    {
+      "id": "singles-paralisis",
+      "title": "Singles y primeras grabaciones",
+      "band": "Paralisis Permanente",
+      "genre": "Punk",
+      "category": "Punk",
+      "price": 56000,
+      "cover": "a549615e-df5b-4753-ba1d-af11dec0cd36",
+      "hasDiscount": false,
+      "discountPercent": 0
+    },
+    {
+      "id": "the-doors",
+      "title": "The Doors ",
+      "band": "The Doors ",
+      "genre": "Psychedelic Rock",
+      "category": "Rock",
+      "price": 65000,
+      "cover": "\t4438e99b-ef1e-32d0-962d-79e9f511f64e",
+      "hasDiscount": false,
+      "discountPercent": 0
+    },
+    {
+      "id": "morrison-hotel",
+      "title": "Morrison Hotel",
+      "band": "The Doors",
+      "genre": "Psychedelic Rock",
+      "category": "Rock",
+      "price": 65000,
+      "cover": "dfec2d40-7c25-4c30-965d-f0134a80aa9f",
+      "hasDiscount": true,
+      "discountPercent": 12,
+      "unitsSold": 0,
+      "totalSold": 0
     }
   ]
 }

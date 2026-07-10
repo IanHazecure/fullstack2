@@ -60,9 +60,9 @@ export class AdminDashboard implements OnInit {
     });
   }
 
-  emptyForm(): Vinyl {
-    return { id: '', title: '', genre: '', category: 'Pop', price: 0, cover: '', hasDiscount: false, discountPercent: 0 };
-  }
+emptyForm(): Vinyl {
+  return { id: '', title: '', band: '', genre: '', category: 'Pop', price: 0, cover: '', hasDiscount: false, discountPercent: 0 };
+}
 
   editProduct(product: Vinyl) {
     this.editingProduct.set(product);
@@ -131,4 +131,6 @@ export class AdminDashboard implements OnInit {
   }
 
   categories = ['Pop', 'Rock', 'Jazz', 'Punk', 'Rap', 'Latina'];
+
+ 
 }
