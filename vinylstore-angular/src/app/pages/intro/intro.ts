@@ -14,31 +14,47 @@ import { resolveCoverUrl } from '../../utils/cover-url';
 export class Intro implements OnInit, OnDestroy {
   private http = inject(HttpClient);
   private purchasesService = inject(PurchasesService);
-  slides = [
-    '/covers/pornography.jpg',
-    '/covers/luis-miguel-20-anos.jpg',
-    '/covers/flatfield.jpg',
-    '/covers/Misfits.jpg',
-    '/covers/kissme.jpg',
-    '/covers/korn.jpg',
-    '/covers/metallica.jpg',
-    '/covers/ser-humano.jpg',
-    '/covers/thriller.png',
-    '/covers/antitodo.jpg',
-  ];
+  slides = signal<string[]>([]);//no hard code lol
+    // '/covers/pornography.jpg',
+    // '/covers/luis-miguel-20-anos.jpg',
+    // '/covers/flatfield.jpg',
+    // '/covers/Misfits.jpg',
+    // '/covers/kissme.jpg',
+    // '/covers/korn.jpg',
+    // '/covers/metallica.jpg',
+    // '/covers/ser-humano.jpg',
+    // '/covers/thriller.png',
+    // '/covers/antitodo.jpg',
 
+shuffle(arr: string[]): string[] {
+  return arr.sort(() => Math.random() - 0.5);
+}
   
   currentSlide = signal(0);
   top3 = signal<any[]>([]);
   private interval: any;
 
-  ngOnInit() {
-    this.interval = setInterval(() => {
-      this.currentSlide.update(i => (i + 1) % this.slides.length);
-    }, 3000);
+  // ngOnInit() {
+  //   this.interval = setInterval(() => {
+  //     this.currentSlide.update(i => (i + 1) % this.slides.length);
+  //   }, 3000);
 
-    this.loadTop3();
-  }
+  //   this.loadTop3();
+  // }
+
+  ngOnInit() {
+  this.http.get<any[]>('http://localhost:3000/products').subscribe(data => {
+    const covers = this.shuffle(data.map((p: any) => p.cover).filter(Boolean));
+    this.slides.set(covers);
+
+
+    this.interval = setInterval(() => {
+      this.currentSlide.update(i => (i + 1) % this.slides().length);
+    }, 3000);
+  });
+
+  this.loadTop3();
+}
 
   loadTop3() {
   const top = this.purchasesService.getTop3(); //lee de db.json 

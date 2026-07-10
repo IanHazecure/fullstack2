@@ -1,6 +1,6 @@
 <app-header />
 <style>
-@import url('https://fonts.googleapis.com/css2?family=Space+Mono:ital,wght@0,400;0,700;1,400;1,700&display=swap');
+  @import url('https://fonts.googleapis.com/css2?family=Space+Mono:ital,wght@0,400;0,700;1,400;1,700&display=swap');
 </style>
 <main>
   <section class="upcoming-banner">
@@ -20,33 +20,36 @@
   <section class="categorias">
     <div class="hero-section">
       <div class="hero-slider">
-        @for (slide of slides; track $index) {
-          <img [src]="slide" class="hero-slide" [class.active]="$index === currentSlide()" />
+        @for (slide of slides(); track $index) {
+          <img [src]="coverUrl(slide)" class="hero-slide" [class.active]="$index === currentSlide()" />
         }
       </div>
       <div class="hero-text">
         <h1>LO MEJOR DEL 2026 HASTA ESTE MES</h1>
-        <p>Nuestra seleccion musical tiene grandes sorpresas para todos los que visitan el local. Te mostramos los regresos mas esperados de las bandas que ya conoces y los nuevos nombres que marcan el ritmo hoy en nuestra tienda de vinilos.</p>
+        <p>Nuestra seleccion musical tiene grandes sorpresas para todos los que visitan el local. Te mostramos los
+          regresos mas esperados de las bandas que ya conoces y los nuevos nombres que marcan el ritmo hoy en nuestra
+          tienda de vinilos.</p>
       </div>
     </div>
-    @if (top3().length > 0) {
-  <section class="top3-section">
-    <h2 class="top3-title">LOS MÁS VENDIDOS</h2>
-    <div class="top3-grid">
-      @for (vinyl of top3(); track vinyl.id) {
-        <article class="top3-card">
-          <div class="top3-rank">#{{ $index + 1 }}</div>
-          <img [src]="coverUrl(vinyl.cover)" [alt]="vinyl.title" />
-          <div class="top3-info">
-            <h3>{{ vinyl.title }}</h3>
-            <p>{{ vinyl.genre }}</p>
-            <p class="top3-price">{{ formatPrice(vinyl.price) }}</p>
-            <p class="top3-sold">{{ vinyl.unitsSold }} vendidos</p>
-          </div>
-        </article>
-      }
-    </div>
   </section>
-}
-  </section>
+
+  @if (top3().length > 0) {
+    <section class="top3-section">
+      <h2 class="top3-title">LOS MÁS VENDIDOS</h2>
+      <div class="top3-grid">
+        @for (vinyl of top3(); track vinyl.id) {
+          <article class="top3-card">
+            <div class="top3-rank">#{{ $index + 1 }}</div>
+            <img [src]="coverUrl(vinyl.cover)" [alt]="vinyl.title" />
+            <div class="top3-info">
+              <h3>{{ vinyl.title }}</h3>
+              <p>{{ vinyl.genre }}</p>
+              <p class="top3-price">{{ formatPrice(vinyl.price) }}</p>
+              <p class="top3-sold">{{ vinyl.unitsSold }} vendidos</p>
+            </div>
+          </article>
+        }
+      </div>
+    </section>
+  }
 </main>
