@@ -102,3 +102,37 @@ text-decoration: 1px underline;
   
 }
 
+@media (max-width: 768px) {
+  .search-bar {
+    display: none;
+  }
+
+  .search-bar input {
+    width: 100%;
+  }
+
+  #authNav {
+    gap: 8px;
+  }
+
+  .subnav {
+    gap: 16px;
+    padding: 10px 16px;
+    flex-wrap: wrap;
+  }
+
+  .subnav a {
+    font-size: 0.75rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .subnav {
+    gap: 12px;
+    padding: 8px 12px;
+  }
+
+  .user-dropdown {
+    right: -8px;
+  }
+}

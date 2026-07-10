@@ -196,3 +196,27 @@
   border-color: #e63946;
   color: #e63946;
 }
+
+@media (max-width: 480px) {
+  .cart-sidebar {
+    width: 100vw;
+  }
+
+  .cart-item {
+    padding: 10px 16px;
+    gap: 8px;
+  }
+
+  .cart-item-img {
+    width: 44px;
+    height: 44px;
+  }
+
+  .cart-header {
+    padding: 16px;
+  }
+
+  .cart-footer {
+    padding: 16px;
+  }
+}

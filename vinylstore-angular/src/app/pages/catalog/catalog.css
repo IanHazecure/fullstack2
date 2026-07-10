@@ -182,3 +182,58 @@
   font-weight: 700;
   color: #e63946;
 }
+
+@media (max-width: 768px) {
+  .catalog-layout {
+    flex-direction: column;
+    padding: 20px 16px;
+    gap: 16px;
+  }
+
+  .catalog-sidebar {
+    width: 100%;
+  }
+
+  .filter-list {
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+
+  .filter-item {
+    font-size: 0.85rem;
+  }
+
+  .filter-search input {
+    margin-bottom: 12px;
+  }
+
+  .catalog-grid {
+    grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+    gap: 12px;
+  }
+
+  .vinilo-content {
+    height: auto;
+  }
+
+  .vinilo-content h3 {
+    font-size: 0.85rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .catalog-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+  }
+
+  .vinilo-content {
+    padding: 8px;
+  }
+
+  .btn-agregar {
+    font-size: 0.75rem;
+    padding: 6px;
+  }
+}
