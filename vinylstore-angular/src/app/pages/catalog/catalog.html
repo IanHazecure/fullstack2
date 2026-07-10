@@ -28,14 +28,20 @@
         }
       </div>
       <div class="vinilo-content">
-        <span class="vinilo-category">{{ product.category }}</span>
-        <h3>{{ product.title }}</h3>
-        <p>{{ product.band }}</p> 
-        <p class="precio">{{ formatPrice(product.price) }}</p>
-        <button class="btn-agregar" (click)="addToCart(product)">
-          + Agregar al carrito
-        </button>
-      </div>
+  <span class="vinilo-category">{{ product.category }}</span>
+  <h3>{{ product.title }}</h3>
+  <p>{{ product.band }}</p>
+  @if (product.hasDiscount && product.discountPercent) {
+    <p class="precio-original">{{ formatPrice(product.price) }}</p>
+    <p class="precio">{{ formatPrice(discountedPrice(product.price, product.discountPercent)) }}</p>
+    <span class="discount-percent">-{{ product.discountPercent }}%</span>
+  } @else {
+    <p class="precio">{{ formatPrice(product.price) }}</p>
+  }
+  <button class="btn-agregar" (click)="addToCart(product)">
+    + Agregar al carrito
+  </button>
+</div>
     </article>
   }
 </section>

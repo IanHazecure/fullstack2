@@ -168,3 +168,17 @@
   text-align: center;
   pointer-events: none;
 }
+
+
+.precio-original {
+  font-size: 0.8rem;
+  color: #999;
+  text-decoration: line-through;
+  margin: 0;
+}
+
+.discount-percent {
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: #e63946;
+}
