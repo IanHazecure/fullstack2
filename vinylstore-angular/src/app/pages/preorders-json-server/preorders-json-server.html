@@ -1,1 +1,64 @@
-<p>preorders-json-server works!</p>
+<app-header />
+<div class="alert" [class.alert-success]="alertType() === 'success'" [class.alert-danger]="alertType() === 'danger'" *ngIf="alertMessage()">
+  {{ alertMessage() }}
+</div>
+<main class="preorders-shell">
+
+  <aside class="preorders-form">
+    <h3>{{ editingId() !== null ? 'Edit Preorder' : 'New Preorder' }}</h3>
+    <div class="form-group">
+      <label>Title</label>
+      <input type="text" [(ngModel)]="form.title" name="title" />
+    </div>
+    <div class="form-group">
+      <label>Artist</label>
+      <input type="text" [(ngModel)]="form.artist" name="artist" />
+    </div>
+    <div class="form-group">
+      <label>Subtitle</label>
+      <input type="text" [(ngModel)]="form.subtitle" name="subtitle" />
+    </div>
+    <div class="form-group">
+      <label>Genre</label>
+      <input type="text" [(ngModel)]="form.genre" name="genre" />
+    </div>
+    <div class="form-group">
+      <label>Price (CLP)</label>
+      <input type="number" [(ngModel)]="form.price" name="price" />
+    </div>
+    <div class="form-group">
+      <label>Release Date</label>
+      <input type="date" [(ngModel)]="form.releaseDate" name="releaseDate" />
+    </div>
+    <div class="form-group">
+      <label>Cover URL</label>
+      <input type="text" [(ngModel)]="form.cover" name="cover" />
+    </div>
+    <div class="form-actions">
+      <button (click)="save()">{{ editingId() !== null ? 'Update' : 'Save' }}</button>
+      <button (click)="resetForm()">Cancel</button>
+    </div>
+  </aside>
+
+  <section class="preorders-grid">
+    @for (p of preorders(); track p.id) {
+      <article class="preorder-card">
+        <div class="preorder-cover">
+          <img [src]="p.cover" [alt]="p.title" />
+          <div class="preorder-status-ribbon">{{ p.status }}</div>
+        </div>
+        <div class="preorder-info">
+          <span class="preorder-artist">{{ p.artist }}</span>
+          <h3>{{ p.title }}</h3>
+          <p class="preorder-genre">{{ p.genre }}</p>
+          <p class="preorder-price">{{ formatPrice(p.price) }}</p>
+        </div>
+        <div class="preorder-actions">
+          <button (click)="edit(p)">Edit</button>
+          <button class="btn-delete" (click)="delete(p.id!)">Delete</button>
+        </div>
+      </article>
+    }
+  </section>
+
+</main>

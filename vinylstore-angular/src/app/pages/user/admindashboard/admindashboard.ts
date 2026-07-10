@@ -21,7 +21,7 @@ export class AdminDashboard implements OnInit {
   products = signal<any[]>([]);
   alertMessage = signal('');
   alertType = signal('');
-  activeTab = signal<'users' | 'products'>('users');
+  activeTab = signal<'users' | 'products' | 'preorders'>('users');
 
   ngOnInit() {
     if (!this.currentUser()) { this.router.navigate(['/login']); return; }

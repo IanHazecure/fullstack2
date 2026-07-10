@@ -13,18 +13,20 @@
             </div>
           }
 
-          <!-- Tabs -->
           <ul class="nav nav-tabs nav-tabs-dark mb-4">
             <li class="nav-item">
-              <button class="nav-link" [class.active]="activeTab() === 'users'"
-                (click)="activeTab.set('users')">
+              <button class="nav-link" [class.active]="activeTab() === 'users'" (click)="activeTab.set('users')">
                 Usuarios ({{ users().length }})
               </button>
             </li>
             <li class="nav-item">
-              <button class="nav-link" [class.active]="activeTab() === 'products'"
-                (click)="activeTab.set('products')">
+              <button class="nav-link" [class.active]="activeTab() === 'products'" (click)="activeTab.set('products')">
                 Productos ({{ products().length }})
+              </button>
+            </li>
+            <li class="nav-item">
+              <button class="nav-link" [class.active]="activeTab() === 'preorders'" (click)="activeTab.set('preorders')">
+                Preventas
               </button>
             </li>
           </ul>
@@ -53,9 +55,7 @@
                       <td>{{ user.email }}</td>
                       <td>{{ user.role === 'admin' ? 'Administrador' : 'Usuario' }}</td>
                       <td>
-                        <button class="btn btn-sm btn-outline-light"
-                          [disabled]="isCurrentUser(user.id)"
-                          (click)="deleteUser(user.id)">
+                        <button class="btn btn-sm btn-outline-light" [disabled]="isCurrentUser(user.id)" (click)="deleteUser(user.id)">
                           {{ isCurrentUser(user.id) ? 'No puedes' : 'Eliminar' }}
                         </button>
                       </td>
@@ -65,8 +65,7 @@
               </table>
             </div>
           }
-<!-- 
-los vinilos -->
+
           @if (activeTab() === 'products') {
             <div class="table-responsive">
               <table class="table table-dark table-striped align-middle mb-0">
@@ -84,8 +83,7 @@ los vinilos -->
                   @for (product of products(); track product.id) {
                     <tr>
                       <td>
-                        <img [src]="product.cover" [alt]="product.title"
-                          style="width:48px; height:48px; object-fit:cover; border-radius:4px;" />
+                        <img [src]="product.cover" [alt]="product.title" style="width:48px; height:48px; object-fit:cover; border-radius:4px;" />
                       </td>
                       <td>{{ product.title }}</td>
                       <td>{{ product.genre }}</td>
@@ -102,6 +100,13 @@ los vinilos -->
                   }
                 </tbody>
               </table>
+            </div>
+          }
+
+          @if (activeTab() === 'preorders') {
+            <div class="preorders-tab">
+              <p>Gestiona las preventas de vinilos desde el panel dedicado.</p>
+              <a routerLink="/preorders-json-server" class="btn btn-outline-light">Ir a Gestionar Preventas →</a>
             </div>
           }
 
