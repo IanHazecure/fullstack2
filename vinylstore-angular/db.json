@@ -514,17 +514,6 @@
       "discountPercent": 12,
       "unitsSold": 0,
       "totalSold": 0
-    },
-    {
-      "id": "test",
-      "title": "test",
-      "band": "test",
-      "genre": "test",
-      "category": "Jazz",
-      "price": 111111,
-      "cover": "",
-      "hasDiscount": false,
-      "discountPercent": 0
     }
   ]
 }
