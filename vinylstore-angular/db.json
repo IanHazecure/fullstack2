@@ -43,6 +43,17 @@
       "status": "Pre-order",
       "cover": "2b9b81a2-3ca3-44e6-907d-57ca752ba760",
       "id": "xjNQnHv"
+    },
+    {
+      "title": "Let it Be",
+      "artist": "The Beatles",
+      "subtitle": "test",
+      "genre": "Rock",
+      "price": 80000,
+      "releaseDate": "2026-07-30",
+      "status": "Pre-order",
+      "cover": "8d5347a5-9ecb-44be-a213-860aaaf5d0b8",
+      "id": "7JNm5QZ"
     }
   ],
   "products": [
@@ -117,12 +128,14 @@
     {
       "id": "recuerdos-2",
       "title": "Recuerdos 2",
-      "band": "Los Prisioneros",
+      "band": "Juan Gabriel ",
       "genre": "Balada/Pop",
       "category": "Pop",
       "price": 27000,
       "cover": "/covers/recuerdos-2.jpg",
-      "hasDiscount": false
+      "hasDiscount": false,
+      "unitsSold": 0,
+      "totalSold": 0
     },
     {
       "id": "luis-miguel-20-anos",
@@ -297,12 +310,14 @@
     {
       "id": "fiesta",
       "title": "Fiesta",
-      "band": "Attaque 77",
+      "band": " Fiskales Ad-Hok Band",
       "genre": "Punk Rock/Hardcore Punk",
       "category": "Punk",
       "price": 47000,
       "cover": "/covers/fiesta.jpg",
-      "hasDiscount": false
+      "hasDiscount": false,
+      "unitsSold": 0,
+      "totalSold": 0
     },
     {
       "id": "famousmonsters",
@@ -514,6 +529,28 @@
       "discountPercent": 12,
       "unitsSold": 0,
       "totalSold": 0
+    },
+    {
+      "id": "like-a-virgin",
+      "title": "Like A Virgin",
+      "band": "Madonna",
+      "genre": "Pop",
+      "category": "Pop",
+      "price": 70000,
+      "cover": "0a3cdd1d-d4f1-4275-914f-69b6277f92b2",
+      "hasDiscount": false,
+      "discountPercent": 0
+    },
+    {
+      "id": "abber-road",
+      "title": "Abbey Road",
+      "band": "The Beatles",
+      "genre": "Rock",
+      "category": "Rock",
+      "price": 77000,
+      "cover": "d6010be3-98f8-422c-a6c9-787e2e491e58",
+      "hasDiscount": false,
+      "discountPercent": 0
     }
   ]
 }
