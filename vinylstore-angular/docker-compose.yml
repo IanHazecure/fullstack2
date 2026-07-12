@@ -1,17 +1,25 @@
+version: "3.8"
+
 services:
-  angular:
+  # Servicio principal de Angular.
+  # Sirve la aplicación compilada mediante NGINX.
+  angular-app:
     build:
       context: .
       dockerfile: Dockerfile
+    container_name: vinylstore-angular
     ports:
       - "8080:80"
     depends_on:
-      - api
+      - json-server-api
 
-  api:
+  # Servicio de API REST local usando json-server.
+  # Expone el endpoint http://localhost:3000/preventas
+  json-server-api:
     build:
       context: .
       dockerfile: Dockerfile.api
+    container_name: vinylstore-json-server
     ports:
       - "3000:3000"
     volumes:
