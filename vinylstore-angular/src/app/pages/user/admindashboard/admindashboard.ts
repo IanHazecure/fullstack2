@@ -130,7 +130,7 @@ emptyForm(): Vinyl {
     setTimeout(() => this.alertMessage.set(''), 3000);
   }
 
-  categories = ['Pop', 'Rock', 'Jazz', 'Punk', 'Rap', 'Latina'];
+  categories = ['Pop', 'Rock', 'Jazz', 'Punk', 'Rap', 'Metal'];
 
  
 }
